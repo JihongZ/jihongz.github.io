@@ -1,3 +1,8 @@
+---
+layout: post
+title: "CFA using Lavaan"
+---
+
     citation()
 
     ## 
