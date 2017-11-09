@@ -7,356 +7,79 @@ categories: Lavaan
 CFA on Attitude Towards Inclusive Education Survey (N = 507)
 ------------------------------------------------------------
 
-The affective dimension of attitudes subscale includes 6 items on a
-six-point likert scale (1 = Strongly Agree, 6 = Strongly Disagree),
-measuring teachers' feelings and emotions associated with inclusive
-education:
+The affective dimension of attitudes subscale includes 6 items on a six-point likert scale (1 = Strongly Agree, 6 = Strongly Disagree), measuring teachers' feelings and emotions associated with inclusive education:
 
-1.  I get frustrated when I have difficulty communicating with students
-    with a disability.
-2.  I get upset when students with a disability cannot keep up with the
-    day-to-day curriculum in my classroom.
-3.  I get irritated when I am unable to understand students with a
-    disability.
-4.  I am uncomfortable including students with a disability in a regular
-    classroom with other students without a disability.
-5.  I am disconcerted that students with a disability are included in
-    the regular classroom, regardless of the severity of the disability.
-6.  I get frustrated when I have to adapt the curriculum to meet the
-    individual needs of all students.
+1.  I get frustrated when I have difficulty communicating with students with a disability.
+2.  I get upset when students with a disability cannot keep up with the day-to-day curriculum in my classroom.
+3.  I get irritated when I am unable to understand students with a disability.
+4.  I am uncomfortable including students with a disability in a regular classroom with other students without a disability.
+5.  I am disconcerted that students with a disability are included in the regular classroom, regardless of the severity of the disability.
+6.  I get frustrated when I have to adapt the curriculum to meet the individual needs of all students.
 
-The sample size (N) is 507, which includes 6 males and 501 females. I
-used one-factor model as first step. All items are loaded on one general
-factor - affective attitude towards inclusive education. Higher response
-score means more positive attitude towards inclusive education.
+The sample size (N) is 507, which includes 6 males and 501 females. I used one-factor model as first step. All items are loaded on one general factor - affective attitude towards inclusive education. Higher response score means more positive attitude towards inclusive education.
 
-    dat <- read.csv("AttitudeForInclusiveEducation.csv")
-    # head(dat)
-    dat2 <- dat %>% select(X,Aff.1:Aff.6)
-    colnames(dat2) <- c("PersonID", paste0("Aff",1:6))
+``` r
+dat <- read.csv("AttitudeForInclusiveEducation.csv")
+# head(dat)
+dat2 <- dat %>% select(X,Aff.1:Aff.6)
+colnames(dat2) <- c("PersonID", paste0("Aff",1:6))
+```
 
 1. Descriptive Statistics
 -------------------------
 
-The descriptive statistics for all items are provided below. It appears
-that item 4 is the least difficult item as it has the highest mean
-(*μ* = 4.189, *s**d* = 1.317); item 5 is the most difficult item as it
-has lowest mean score (*μ* = 3.604, *s**d* = 1.423). All responses for
-items ranges from 1 to 6 (1 = Strongly agree, 6 = Strongly disagree). In
-term of discrimination, as item 3 has the largest standard deviation
-(*s**d* = 1.364) and item 6 has the smallest, item 3 has highest
-discrimination whearas item 6 has lowest in CTT.
+The descriptive statistics for all items are provided below. It appears that item 4 is the least difficult item as it has the highest mean (*μ* = 4.189, *s**d* = 1.317); item 5 is the most difficult item as it has lowest mean score (*μ* = 3.604, *s**d* = 1.423). All responses for items ranges from 1 to 6 (1 = Strongly agree, 6 = Strongly disagree). In term of discrimination, as item 3 has the largest standard deviation (*s**d* = 1.364) and item 6 has the smallest, item 3 has highest discrimination whearas item 6 has lowest in CTT.
 
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="right">vars</th>
-<th align="right">n</th>
-<th align="right">mean</th>
-<th align="right">sd</th>
-<th align="right">median</th>
-<th align="right">trimmed</th>
-<th align="right">mad</th>
-<th align="right">min</th>
-<th align="right">max</th>
-<th align="right">range</th>
-<th align="right">skew</th>
-<th align="right">kurtosis</th>
-<th align="right">se</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>PersonID</td>
-<td align="right">1</td>
-<td align="right">507</td>
-<td align="right">254.000</td>
-<td align="right">146.503</td>
-<td align="right">254</td>
-<td align="right">254.000</td>
-<td align="right">188.290</td>
-<td align="right">1</td>
-<td align="right">507</td>
-<td align="right">506</td>
-<td align="right">0.000</td>
-<td align="right">-1.207</td>
-<td align="right">6.506</td>
-</tr>
-<tr class="even">
-<td>Aff1</td>
-<td align="right">2</td>
-<td align="right">507</td>
-<td align="right">3.765</td>
-<td align="right">1.337</td>
-<td align="right">4</td>
-<td align="right">3.779</td>
-<td align="right">1.483</td>
-<td align="right">1</td>
-<td align="right">6</td>
-<td align="right">5</td>
-<td align="right">-0.131</td>
-<td align="right">-0.927</td>
-<td align="right">0.059</td>
-</tr>
-<tr class="odd">
-<td>Aff2</td>
-<td align="right">3</td>
-<td align="right">507</td>
-<td align="right">3.635</td>
-<td align="right">1.335</td>
-<td align="right">4</td>
-<td align="right">3.636</td>
-<td align="right">1.483</td>
-<td align="right">1</td>
-<td align="right">6</td>
-<td align="right">5</td>
-<td align="right">-0.026</td>
-<td align="right">-0.963</td>
-<td align="right">0.059</td>
-</tr>
-<tr class="even">
-<td>Aff3</td>
-<td align="right">4</td>
-<td align="right">507</td>
-<td align="right">3.493</td>
-<td align="right">1.364</td>
-<td align="right">3</td>
-<td align="right">3.472</td>
-<td align="right">1.483</td>
-<td align="right">1</td>
-<td align="right">6</td>
-<td align="right">5</td>
-<td align="right">0.124</td>
-<td align="right">-0.969</td>
-<td align="right">0.061</td>
-</tr>
-<tr class="odd">
-<td>Aff4</td>
-<td align="right">5</td>
-<td align="right">507</td>
-<td align="right">4.189</td>
-<td align="right">1.317</td>
-<td align="right">4</td>
-<td align="right">4.287</td>
-<td align="right">1.483</td>
-<td align="right">1</td>
-<td align="right">6</td>
-<td align="right">5</td>
-<td align="right">-0.589</td>
-<td align="right">-0.327</td>
-<td align="right">0.058</td>
-</tr>
-<tr class="even">
-<td>Aff5</td>
-<td align="right">6</td>
-<td align="right">507</td>
-<td align="right">3.604</td>
-<td align="right">1.423</td>
-<td align="right">4</td>
-<td align="right">3.590</td>
-<td align="right">1.483</td>
-<td align="right">1</td>
-<td align="right">6</td>
-<td align="right">5</td>
-<td align="right">0.000</td>
-<td align="right">-0.939</td>
-<td align="right">0.063</td>
-</tr>
-<tr class="odd">
-<td>Aff6</td>
-<td align="right">7</td>
-<td align="right">507</td>
-<td align="right">4.018</td>
-<td align="right">1.313</td>
-<td align="right">4</td>
-<td align="right">4.061</td>
-<td align="right">1.483</td>
-<td align="right">1</td>
-<td align="right">6</td>
-<td align="right">5</td>
-<td align="right">-0.356</td>
-<td align="right">-0.733</td>
-<td align="right">0.058</td>
-</tr>
-</tbody>
-</table>
+|          |  vars|    n|     mean|       sd|  median|  trimmed|      mad|  min|  max|  range|    skew|  kurtosis|     se|
+|----------|-----:|----:|--------:|--------:|-------:|--------:|--------:|----:|----:|------:|-------:|---------:|------:|
+| PersonID |     1|  507|  254.000|  146.503|     254|  254.000|  188.290|    1|  507|    506|   0.000|    -1.207|  6.506|
+| Aff1     |     2|  507|    3.765|    1.337|       4|    3.779|    1.483|    1|    6|      5|  -0.131|    -0.927|  0.059|
+| Aff2     |     3|  507|    3.635|    1.335|       4|    3.636|    1.483|    1|    6|      5|  -0.026|    -0.963|  0.059|
+| Aff3     |     4|  507|    3.493|    1.364|       3|    3.472|    1.483|    1|    6|      5|   0.124|    -0.969|  0.061|
+| Aff4     |     5|  507|    4.189|    1.317|       4|    4.287|    1.483|    1|    6|      5|  -0.589|    -0.327|  0.058|
+| Aff5     |     6|  507|    3.604|    1.423|       4|    3.590|    1.483|    1|    6|      5|   0.000|    -0.939|  0.063|
+| Aff6     |     7|  507|    4.018|    1.313|       4|    4.061|    1.483|    1|    6|      5|  -0.356|    -0.733|  0.058|
 
-Item-total correlation table was provided below. All item-total
-correlation coefficients are higher than 0.7, which suggests good
-internal consistence. Item 1 has lowest item-total correlation
-(*r* = 0.733, *s**d* = 1.337).
+Item-total correlation table was provided below. All item-total correlation coefficients are higher than 0.7, which suggests good internal consistence. Item 1 has lowest item-total correlation (*r* = 0.733, *s**d* = 1.337).
 
-<table>
-<caption>Item-total Correlation Table</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th align="right">n</th>
-<th align="right">raw.r</th>
-<th align="right">std.r</th>
-<th align="right">r.cor</th>
-<th align="right">r.drop</th>
-<th align="right">mean</th>
-<th align="right">sd</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Aff1</td>
-<td align="right">507</td>
-<td align="right">0.733</td>
-<td align="right">0.735</td>
-<td align="right">0.652</td>
-<td align="right">0.611</td>
-<td align="right">3.765</td>
-<td align="right">1.337</td>
-</tr>
-<tr class="even">
-<td>Aff2</td>
-<td align="right">507</td>
-<td align="right">0.835</td>
-<td align="right">0.836</td>
-<td align="right">0.806</td>
-<td align="right">0.753</td>
-<td align="right">3.635</td>
-<td align="right">1.335</td>
-</tr>
-<tr class="odd">
-<td>Aff3</td>
-<td align="right">507</td>
-<td align="right">0.813</td>
-<td align="right">0.812</td>
-<td align="right">0.771</td>
-<td align="right">0.718</td>
-<td align="right">3.493</td>
-<td align="right">1.364</td>
-</tr>
-<tr class="even">
-<td>Aff4</td>
-<td align="right">507</td>
-<td align="right">0.789</td>
-<td align="right">0.790</td>
-<td align="right">0.742</td>
-<td align="right">0.689</td>
-<td align="right">4.189</td>
-<td align="right">1.317</td>
-</tr>
-<tr class="odd">
-<td>Aff5</td>
-<td align="right">507</td>
-<td align="right">0.774</td>
-<td align="right">0.769</td>
-<td align="right">0.702</td>
-<td align="right">0.658</td>
-<td align="right">3.604</td>
-<td align="right">1.423</td>
-</tr>
-<tr class="even">
-<td>Aff6</td>
-<td align="right">507</td>
-<td align="right">0.836</td>
-<td align="right">0.838</td>
-<td align="right">0.805</td>
-<td align="right">0.755</td>
-<td align="right">4.018</td>
-<td align="right">1.313</td>
-</tr>
-</tbody>
-</table>
+|      |    n|  raw.r|  std.r|  r.cor|  r.drop|   mean|     sd|
+|------|----:|------:|------:|------:|-------:|------:|------:|
+| Aff1 |  507|  0.733|  0.735|  0.652|   0.611|  3.765|  1.337|
+| Aff2 |  507|  0.835|  0.836|  0.806|   0.753|  3.635|  1.335|
+| Aff3 |  507|  0.813|  0.812|  0.771|   0.718|  3.493|  1.364|
+| Aff4 |  507|  0.789|  0.790|  0.742|   0.689|  4.189|  1.317|
+| Aff5 |  507|  0.774|  0.769|  0.702|   0.658|  3.604|  1.423|
+| Aff6 |  507|  0.836|  0.838|  0.805|   0.755|  4.018|  1.313|
 
 ### Sample Correlation Matrix
 
-According to Pearson Correlation Matrix below, we can see all items have
-fairly high pearson correlation coefficients ranging from 0.44 to 0.72.
-This provides the evidence of dimensionality. Item 2 and item 3 has
-highest correlation coefficient(*r*<sub>23</sub> = 0.717). The lowest
-correlations lies between item 1 and item 4 as well as item 1 and item
-5.
+According to Pearson Correlation Matrix below, we can see all items have fairly high pearson correlation coefficients ranging from 0.44 to 0.72. This provides the evidence of dimensionality. Item 2 and item 3 has highest correlation coefficient(*r*<sub>23</sub> = 0.717). The lowest correlations lies between item 1 and item 4 as well as item 1 and item 5.
 
-    cor(dat2[2:7]) %>% round(3) %>% kable(caption = "Pearson Correlation Matrix")
+``` r
+cor(dat2[2:7]) %>% round(3) %>% kable(caption = "Pearson Correlation Matrix")
+```
 
-<table>
-<caption>Pearson Correlation Matrix</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th align="right">Aff1</th>
-<th align="right">Aff2</th>
-<th align="right">Aff3</th>
-<th align="right">Aff4</th>
-<th align="right">Aff5</th>
-<th align="right">Aff6</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Aff1</td>
-<td align="right">1.000</td>
-<td align="right">0.590</td>
-<td align="right">0.525</td>
-<td align="right">0.448</td>
-<td align="right">0.411</td>
-<td align="right">0.538</td>
-</tr>
-<tr class="even">
-<td>Aff2</td>
-<td align="right">0.590</td>
-<td align="right">1.000</td>
-<td align="right">0.717</td>
-<td align="right">0.534</td>
-<td align="right">0.553</td>
-<td align="right">0.602</td>
-</tr>
-<tr class="odd">
-<td>Aff3</td>
-<td align="right">0.525</td>
-<td align="right">0.717</td>
-<td align="right">1.000</td>
-<td align="right">0.505</td>
-<td align="right">0.527</td>
-<td align="right">0.608</td>
-</tr>
-<tr class="even">
-<td>Aff4</td>
-<td align="right">0.448</td>
-<td align="right">0.534</td>
-<td align="right">0.505</td>
-<td align="right">1.000</td>
-<td align="right">0.609</td>
-<td align="right">0.682</td>
-</tr>
-<tr class="odd">
-<td>Aff5</td>
-<td align="right">0.411</td>
-<td align="right">0.553</td>
-<td align="right">0.527</td>
-<td align="right">0.609</td>
-<td align="right">1.000</td>
-<td align="right">0.577</td>
-</tr>
-<tr class="even">
-<td>Aff6</td>
-<td align="right">0.538</td>
-<td align="right">0.602</td>
-<td align="right">0.608</td>
-<td align="right">0.682</td>
-<td align="right">0.577</td>
-<td align="right">1.000</td>
-</tr>
-</tbody>
-</table>
+|      |   Aff1|   Aff2|   Aff3|   Aff4|   Aff5|   Aff6|
+|------|------:|------:|------:|------:|------:|------:|
+| Aff1 |  1.000|  0.590|  0.525|  0.448|  0.411|  0.538|
+| Aff2 |  0.590|  1.000|  0.717|  0.534|  0.553|  0.602|
+| Aff3 |  0.525|  0.717|  1.000|  0.505|  0.527|  0.608|
+| Aff4 |  0.448|  0.534|  0.505|  1.000|  0.609|  0.682|
+| Aff5 |  0.411|  0.553|  0.527|  0.609|  1.000|  0.577|
+| Aff6 |  0.538|  0.602|  0.608|  0.682|  0.577|  1.000|
 
 ### Sample Mean and Variance
 
-    means <- dat2[,2:7] %>% 
-      summarise_all(funs(mean)) %>% round(3) %>% t() %>% as.data.frame()
-    sds <- dat2[,2:7] %>% 
-      summarise_all(funs(sd)) %>% round(3) %>% t() %>% as.data.frame()
-    table1 <- cbind(means,sds)
+``` r
+means <- dat2[,2:7] %>% 
+  summarise_all(funs(mean)) %>% round(3) %>% t() %>% as.data.frame()
+sds <- dat2[,2:7] %>% 
+  summarise_all(funs(sd)) %>% round(3) %>% t() %>% as.data.frame()
+table1 <- cbind(means,sds)
 
-    colnames(table1) <- c("Mean", "SD")
-    table1
+colnames(table1) <- c("Mean", "SD")
+table1
+```
 
     ##       Mean    SD
     ## Aff1 3.765 1.337
@@ -368,33 +91,30 @@ correlations lies between item 1 and item 4 as well as item 1 and item
 
 ### Sample Item Response Distributions
 
-    # stack data
-    dat2_melted <- dat2 %>% gather(key, value,Aff1:Aff6) %>% arrange(PersonID)
+``` r
+# stack data
+dat2_melted <- dat2 %>% gather(key, value,Aff1:Aff6) %>% arrange(PersonID)
 
-    # pl;ot by variable
-    ggplot(dat2_melted, aes(value)) + geom_histogram(bins=8) + facet_wrap(~ key)
+# pl;ot by variable
+ggplot(dat2_melted, aes(value)) + geom_histogram(bins=8) + facet_wrap(~ key)
+```
 
-![](EPSY906_HW3_files/figure-markdown_strict/dist-1.png)
+![](EPSY906_HW3_files/figure-markdown_github/dist-1.png)
 
 3. Estimation with CFA
 ----------------------
 
 ### One-factor Model
 
-One-factor model was conducted as first step. The model has one latent
-facor - affective attitude and six indicators. In general, one-factor
-model does not provide great model fit except SRMR. The test statistics
-for chi-square is 75.835 (*p* &lt; 0.05). CFI is 0.929, which larger
-than 0.95 suggests good model fit. RMSEA is 0.121, which lower than 0.05
-suggest good model fit. SRMR is 0.04, which lower than 0.08. The
-standardized factor loadings range from 0.66 to 0.8. All factor loadings
-are significant at the level of alpha equals 0.05.
+One-factor model was conducted as first step. The model has one latent facor - affective attitude and six indicators. In general, one-factor model does not provide great model fit except SRMR. The test statistics for chi-square is 75.835 (*p* &lt; 0.05). CFI is 0.929, which larger than 0.95 suggests good model fit. RMSEA is 0.121, which lower than 0.05 suggest good model fit. SRMR is 0.04, which lower than 0.08. The standardized factor loadings range from 0.66 to 0.8. All factor loadings are significant at the level of alpha equals 0.05.
 
-    model1.syntax <- '
-      AA =~ Aff1 + Aff2 + Aff3 + Aff4 + Aff5 + Aff6
-    '
-    model1 <- cfa(model1.syntax, data = dat2,std.lv = TRUE, mimic = "mplus", estimator = "MLR")
-    summary(model1, fit.measures = TRUE, standardized = TRUE)
+``` r
+model1.syntax <- '
+  AA =~ Aff1 + Aff2 + Aff3 + Aff4 + Aff5 + Aff6
+'
+model1 <- cfa(model1.syntax, data = dat2,std.lv = TRUE, mimic = "mplus", estimator = "MLR")
+summary(model1, fit.measures = TRUE, standardized = TRUE)
+```
 
     ## lavaan (0.5-23.1097) converged normally after  14 iterations
     ## 
@@ -487,245 +207,51 @@ are significant at the level of alpha equals 0.05.
 
 ### Local Misfit
 
-By looking into local misfit with residual variance-covariance matrix we
-can get the clues to improve the model. According to the model
-residuals, item 4 has relatively high positive residual covariance with
-item 5 and item 6. It suggest that one-factor model underestimate the
-correlation among item 4, item 5 and item 6. In other words, there may
-be another latent factor could explain the covariances among item 4, 5,
-6 that cannot be explained by a general Affective attitude factor.
-Moreover, modification indices also suggest that adding covariances
-among item 4, 5 and 6 will improve chi-square much better. Thus, I add
-one more factor - AAE. AAE was labeled as affective attitude towards
-educational environment which indicated by item 4, 5, 6. The other
-latent factor - AAC which was indicated by item 1, 2, 3 was labeled as
-Affective Attitude towards communication.
+By looking into local misfit with residual variance-covariance matrix we can get the clues to improve the model. According to the model residuals, item 4 has relatively high positive residual covariance with item 5 and item 6. It suggest that one-factor model underestimate the correlation among item 4, item 5 and item 6. In other words, there may be another latent factor could explain the covariances among item 4, 5, 6 that cannot be explained by a general Affective attitude factor. Moreover, modification indices also suggest that adding covariances among item 4, 5 and 6 will improve chi-square much better. Thus, I add one more factor - AAE. AAE was labeled as affective attitude towards educational environment which indicated by item 4, 5, 6. The other latent factor - AAC which was indicated by item 1, 2, 3 was labeled as Affective Attitude towards communication.
 
-    resid(model1, type = "normalized")$cov %>% kable(caption = "Normalized Residual Variance-Covariance Matrix",digits = 3)
+``` r
+resid(model1, type = "normalized")$cov %>% kable(caption = "Normalized Residual Variance-Covariance Matrix",digits = 3)
+```
 
-<table>
-<caption>Normalized Residual Variance-Covariance Matrix</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th align="right">Aff1</th>
-<th align="right">Aff2</th>
-<th align="right">Aff3</th>
-<th align="right">Aff4</th>
-<th align="right">Aff5</th>
-<th align="right">Aff6</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Aff1</td>
-<td align="right">0.000</td>
-<td align="right">1.080</td>
-<td align="right">0.120</td>
-<td align="right">-0.767</td>
-<td align="right">-1.175</td>
-<td align="right">0.073</td>
-</tr>
-<tr class="even">
-<td>Aff2</td>
-<td align="right">1.080</td>
-<td align="right">0.000</td>
-<td align="right">1.743</td>
-<td align="right">-1.192</td>
-<td align="right">-0.357</td>
-<td align="right">-0.997</td>
-</tr>
-<tr class="odd">
-<td>Aff3</td>
-<td align="right">0.120</td>
-<td align="right">1.743</td>
-<td align="right">0.000</td>
-<td align="right">-1.395</td>
-<td align="right">-0.524</td>
-<td align="right">-0.465</td>
-</tr>
-<tr class="even">
-<td>Aff4</td>
-<td align="right">-0.767</td>
-<td align="right">-1.192</td>
-<td align="right">-1.395</td>
-<td align="right">0.000</td>
-<td align="right">1.758</td>
-<td align="right">1.723</td>
-</tr>
-<tr class="odd">
-<td>Aff5</td>
-<td align="right">-1.175</td>
-<td align="right">-0.357</td>
-<td align="right">-0.524</td>
-<td align="right">1.758</td>
-<td align="right">0.000</td>
-<td align="right">0.158</td>
-</tr>
-<tr class="even">
-<td>Aff6</td>
-<td align="right">0.073</td>
-<td align="right">-0.997</td>
-<td align="right">-0.465</td>
-<td align="right">1.723</td>
-<td align="right">0.158</td>
-<td align="right">0.000</td>
-</tr>
-</tbody>
-</table>
+|      |    Aff1|    Aff2|    Aff3|    Aff4|    Aff5|    Aff6|
+|------|-------:|-------:|-------:|-------:|-------:|-------:|
+| Aff1 |   0.000|   1.080|   0.120|  -0.767|  -1.175|   0.073|
+| Aff2 |   1.080|   0.000|   1.743|  -1.192|  -0.357|  -0.997|
+| Aff3 |   0.120|   1.743|   0.000|  -1.395|  -0.524|  -0.465|
+| Aff4 |  -0.767|  -1.192|  -1.395|   0.000|   1.758|   1.723|
+| Aff5 |  -1.175|  -0.357|  -0.524|   1.758|   0.000|   0.158|
+| Aff6 |   0.073|  -0.997|  -0.465|   1.723|   0.158|   0.000|
 
-    modificationindices(model1, standardized = TRUE,sort. = TRUE) %>% slice(1:10) %>% kable(caption = "Modification Indices", digits = 3)
+``` r
+modificationindices(model1, standardized = TRUE,sort. = TRUE) %>% slice(1:10) %>% kable(caption = "Modification Indices", digits = 3)
+```
 
-<table>
-<caption>Modification Indices</caption>
-<thead>
-<tr class="header">
-<th align="left">lhs</th>
-<th align="left">op</th>
-<th align="left">rhs</th>
-<th align="right">mi</th>
-<th align="right">mi.scaled</th>
-<th align="right">epc</th>
-<th align="right">sepc.lv</th>
-<th align="right">sepc.all</th>
-<th align="right">sepc.nox</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Aff2</td>
-<td align="left">~~</td>
-<td align="left">Aff3</td>
-<td align="right">55.906</td>
-<td align="right">36.735</td>
-<td align="right">0.319</td>
-<td align="right">0.319</td>
-<td align="right">0.176</td>
-<td align="right">0.176</td>
-</tr>
-<tr class="even">
-<td align="left">Aff4</td>
-<td align="left">~~</td>
-<td align="left">Aff6</td>
-<td align="right">45.674</td>
-<td align="right">30.012</td>
-<td align="right">0.279</td>
-<td align="right">0.279</td>
-<td align="right">0.162</td>
-<td align="right">0.162</td>
-</tr>
-<tr class="odd">
-<td align="left">Aff4</td>
-<td align="left">~~</td>
-<td align="left">Aff5</td>
-<td align="right">25.673</td>
-<td align="right">16.870</td>
-<td align="right">0.243</td>
-<td align="right">0.243</td>
-<td align="right">0.130</td>
-<td align="right">0.130</td>
-</tr>
-<tr class="even">
-<td align="left">Aff3</td>
-<td align="left">~~</td>
-<td align="left">Aff4</td>
-<td align="right">24.229</td>
-<td align="right">15.920</td>
-<td align="right">-0.214</td>
-<td align="right">-0.214</td>
-<td align="right">-0.119</td>
-<td align="right">-0.119</td>
-</tr>
-<tr class="odd">
-<td align="left">Aff2</td>
-<td align="left">~~</td>
-<td align="left">Aff6</td>
-<td align="right">22.494</td>
-<td align="right">14.780</td>
-<td align="right">-0.194</td>
-<td align="right">-0.194</td>
-<td align="right">-0.111</td>
-<td align="right">-0.111</td>
-</tr>
-<tr class="even">
-<td align="left">Aff2</td>
-<td align="left">~~</td>
-<td align="left">Aff4</td>
-<td align="right">21.303</td>
-<td align="right">13.998</td>
-<td align="right">-0.193</td>
-<td align="right">-0.193</td>
-<td align="right">-0.110</td>
-<td align="right">-0.110</td>
-</tr>
-<tr class="odd">
-<td align="left">Aff1</td>
-<td align="left">~~</td>
-<td align="left">Aff2</td>
-<td align="right">11.974</td>
-<td align="right">7.868</td>
-<td align="right">0.153</td>
-<td align="right">0.153</td>
-<td align="right">0.086</td>
-<td align="right">0.086</td>
-</tr>
-<tr class="even">
-<td align="left">Aff1</td>
-<td align="left">~~</td>
-<td align="left">Aff5</td>
-<td align="right">7.918</td>
-<td align="right">5.203</td>
-<td align="right">-0.145</td>
-<td align="right">-0.145</td>
-<td align="right">-0.076</td>
-<td align="right">-0.076</td>
-</tr>
-<tr class="odd">
-<td align="left">Aff1</td>
-<td align="left">~~</td>
-<td align="left">Aff4</td>
-<td align="right">4.309</td>
-<td align="right">2.831</td>
-<td align="right">-0.096</td>
-<td align="right">-0.096</td>
-<td align="right">-0.055</td>
-<td align="right">-0.055</td>
-</tr>
-<tr class="even">
-<td align="left">Aff3</td>
-<td align="left">~~</td>
-<td align="left">Aff6</td>
-<td align="right">4.018</td>
-<td align="right">2.640</td>
-<td align="right">-0.084</td>
-<td align="right">-0.084</td>
-<td align="right">-0.047</td>
-<td align="right">-0.047</td>
-</tr>
-</tbody>
-</table>
+| lhs  | op  | rhs  |      mi|  mi.scaled|     epc|  sepc.lv|  sepc.all|  sepc.nox|
+|:-----|:----|:-----|-------:|----------:|-------:|--------:|---------:|---------:|
+| Aff2 | ~~  | Aff3 |  55.906|     36.735|   0.319|    0.319|     0.176|     0.176|
+| Aff4 | ~~  | Aff6 |  45.674|     30.012|   0.279|    0.279|     0.162|     0.162|
+| Aff4 | ~~  | Aff5 |  25.673|     16.870|   0.243|    0.243|     0.130|     0.130|
+| Aff3 | ~~  | Aff4 |  24.229|     15.920|  -0.214|   -0.214|    -0.119|    -0.119|
+| Aff2 | ~~  | Aff6 |  22.494|     14.780|  -0.194|   -0.194|    -0.111|    -0.111|
+| Aff2 | ~~  | Aff4 |  21.303|     13.998|  -0.193|   -0.193|    -0.110|    -0.110|
+| Aff1 | ~~  | Aff2 |  11.974|      7.868|   0.153|    0.153|     0.086|     0.086|
+| Aff1 | ~~  | Aff5 |   7.918|      5.203|  -0.145|   -0.145|    -0.076|    -0.076|
+| Aff1 | ~~  | Aff4 |   4.309|      2.831|  -0.096|   -0.096|    -0.055|    -0.055|
+| Aff3 | ~~  | Aff6 |   4.018|      2.640|  -0.084|   -0.084|    -0.047|    -0.047|
 
 Two-factor Model
 ----------------
 
-The neccessity of separate latent factors was tested by specifying a
-two-factor model. In term of model fit indices, it appears that the
-global model fit indices are acceptable with two-factor model (CFI =
-0.986; RMSEA = 0.058; SRMR = 0.022). Theoretically, two latent factors
-could be labeled as two seperated but highly correlated aspects of
-attitudes towards inclusive education. One factor AAC could be labeled
-as how teachers feel about communicating with students with disability.
-The other one AAE could be labeled as how teachers feel about evironment
-of inclusive education. All standardized factor loadings are
-statistically significant ranging from 0.676 to 0.865. The factor
-correlation between 2 factors is high (*r* = 0.838, *p* = 0.00).
+The neccessity of separate latent factors was tested by specifying a two-factor model. In term of model fit indices, it appears that the global model fit indices are acceptable with two-factor model (CFI = 0.986; RMSEA = 0.058; SRMR = 0.022). Theoretically, two latent factors could be labeled as two seperated but highly correlated aspects of attitudes towards inclusive education. One factor AAC could be labeled as how teachers feel about communicating with students with disability. The other one AAE could be labeled as how teachers feel about evironment of inclusive education. All standardized factor loadings are statistically significant ranging from 0.676 to 0.865. The factor correlation between 2 factors is high (*r* = 0.838, *p* = 0.00).
 
-    model2.syntax <- '
-      AAC =~ Aff1 + Aff2 + Aff3
-      AAE =~ Aff4 + Aff5 + Aff6
-    '
-    model2 <- cfa(model2.syntax, data = dat2, std.lv = TRUE, mimic = "mplus", estimator = "MLR")
-    summary(model2, fit.measures = TRUE, standardized = TRUE)
+``` r
+model2.syntax <- '
+  AAC =~ Aff1 + Aff2 + Aff3
+  AAE =~ Aff4 + Aff5 + Aff6
+'
+model2 <- cfa(model2.syntax, data = dat2, std.lv = TRUE, mimic = "mplus", estimator = "MLR")
+summary(model2, fit.measures = TRUE, standardized = TRUE)
+```
 
     ## lavaan (0.5-23.1097) converged normally after  19 iterations
     ## 
@@ -826,248 +352,72 @@ correlation between 2 factors is high (*r* = 0.838, *p* = 0.00).
 
 ### Local Misfit for two-factor model
 
-The local misfit indices for two-factor model also suggest that the
-model fits data well. The largest normalized residuals is 1.215.
-Modification indices suggest that add covariance between item 5 and item
-6. These local misfit is not theoretically defensible. Thus, the final
-model is two-factor model.
+The local misfit indices for two-factor model also suggest that the model fits data well. The largest normalized residuals is 1.215. Modification indices suggest that add covariance between item 5 and item 6. These local misfit is not theoretically defensible. Thus, the final model is two-factor model.
 
-    resid(model2, type = "normalized")$cov %>% kable(caption = "Normalized Residual Variance-Covariance Matrix",digits = 3)
+``` r
+resid(model2, type = "normalized")$cov %>% kable(caption = "Normalized Residual Variance-Covariance Matrix",digits = 3)
+```
 
-<table>
-<caption>Normalized Residual Variance-Covariance Matrix</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th align="right">Aff1</th>
-<th align="right">Aff2</th>
-<th align="right">Aff3</th>
-<th align="right">Aff4</th>
-<th align="right">Aff5</th>
-<th align="right">Aff6</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Aff1</td>
-<td align="right">0.000</td>
-<td align="right">0.108</td>
-<td align="right">-0.582</td>
-<td align="right">-0.051</td>
-<td align="right">-0.036</td>
-<td align="right">1.215</td>
-</tr>
-<tr class="even">
-<td>Aff2</td>
-<td align="right">0.108</td>
-<td align="right">0.000</td>
-<td align="right">0.163</td>
-<td align="right">-0.843</td>
-<td align="right">0.506</td>
-<td align="right">-0.189</td>
-</tr>
-<tr class="odd">
-<td>Aff3</td>
-<td align="right">-0.582</td>
-<td align="right">0.163</td>
-<td align="right">0.000</td>
-<td align="right">-0.833</td>
-<td align="right">0.515</td>
-<td align="right">0.559</td>
-</tr>
-<tr class="even">
-<td>Aff4</td>
-<td align="right">-0.051</td>
-<td align="right">-0.843</td>
-<td align="right">-0.833</td>
-<td align="right">0.000</td>
-<td align="right">0.583</td>
-<td align="right">0.213</td>
-</tr>
-<tr class="odd">
-<td>Aff5</td>
-<td align="right">-0.036</td>
-<td align="right">0.506</td>
-<td align="right">0.515</td>
-<td align="right">0.583</td>
-<td align="right">0.000</td>
-<td align="right">-0.745</td>
-</tr>
-<tr class="even">
-<td>Aff6</td>
-<td align="right">1.215</td>
-<td align="right">-0.189</td>
-<td align="right">0.559</td>
-<td align="right">0.213</td>
-<td align="right">-0.745</td>
-<td align="right">0.000</td>
-</tr>
-</tbody>
-</table>
+|      |    Aff1|    Aff2|    Aff3|    Aff4|    Aff5|    Aff6|
+|------|-------:|-------:|-------:|-------:|-------:|-------:|
+| Aff1 |   0.000|   0.108|  -0.582|  -0.051|  -0.036|   1.215|
+| Aff2 |   0.108|   0.000|   0.163|  -0.843|   0.506|  -0.189|
+| Aff3 |  -0.582|   0.163|   0.000|  -0.833|   0.515|   0.559|
+| Aff4 |  -0.051|  -0.843|  -0.833|   0.000|   0.583|   0.213|
+| Aff5 |  -0.036|   0.506|   0.515|   0.583|   0.000|  -0.745|
+| Aff6 |   1.215|  -0.189|   0.559|   0.213|  -0.745|   0.000|
 
-    modificationindices(model2, standardized = TRUE,sort. = TRUE) %>% slice(1:10) %>% kable(caption = "Modification Indices", digits = 3)
+``` r
+modificationindices(model2, standardized = TRUE,sort. = TRUE) %>% slice(1:10) %>% kable(caption = "Modification Indices", digits = 3)
+```
 
-<table>
-<caption>Modification Indices</caption>
-<thead>
-<tr class="header">
-<th align="left">lhs</th>
-<th align="left">op</th>
-<th align="left">rhs</th>
-<th align="right">mi</th>
-<th align="right">mi.scaled</th>
-<th align="right">epc</th>
-<th align="right">sepc.lv</th>
-<th align="right">sepc.all</th>
-<th align="right">sepc.nox</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Aff5</td>
-<td align="left">~~</td>
-<td align="left">Aff6</td>
-<td align="right">16.894</td>
-<td align="right">11.240</td>
-<td align="right">-0.224</td>
-<td align="right">-0.224</td>
-<td align="right">-0.120</td>
-<td align="right">-0.120</td>
-</tr>
-<tr class="even">
-<td align="left">AAC</td>
-<td align="left">=~</td>
-<td align="left">Aff4</td>
-<td align="right">16.894</td>
-<td align="right">11.240</td>
-<td align="right">-0.578</td>
-<td align="right">-0.578</td>
-<td align="right">-0.439</td>
-<td align="right">-0.439</td>
-</tr>
-<tr class="odd">
-<td align="left">Aff1</td>
-<td align="left">~~</td>
-<td align="left">Aff6</td>
-<td align="right">7.064</td>
-<td align="right">4.700</td>
-<td align="right">0.108</td>
-<td align="right">0.108</td>
-<td align="right">0.061</td>
-<td align="right">0.061</td>
-</tr>
-<tr class="even">
-<td align="left">Aff4</td>
-<td align="left">~~</td>
-<td align="left">Aff5</td>
-<td align="right">5.977</td>
-<td align="right">3.977</td>
-<td align="right">0.128</td>
-<td align="right">0.128</td>
-<td align="right">0.068</td>
-<td align="right">0.068</td>
-</tr>
-<tr class="odd">
-<td align="left">AAC</td>
-<td align="left">=~</td>
-<td align="left">Aff6</td>
-<td align="right">5.977</td>
-<td align="right">3.977</td>
-<td align="right">0.368</td>
-<td align="right">0.368</td>
-<td align="right">0.280</td>
-<td align="right">0.280</td>
-</tr>
-<tr class="even">
-<td align="left">Aff1</td>
-<td align="left">~~</td>
-<td align="left">Aff3</td>
-<td align="right">5.093</td>
-<td align="right">3.389</td>
-<td align="right">-0.112</td>
-<td align="right">-0.112</td>
-<td align="right">-0.062</td>
-<td align="right">-0.062</td>
-</tr>
-<tr class="odd">
-<td align="left">AAE</td>
-<td align="left">=~</td>
-<td align="left">Aff2</td>
-<td align="right">5.093</td>
-<td align="right">3.389</td>
-<td align="right">-0.362</td>
-<td align="right">-0.362</td>
-<td align="right">-0.272</td>
-<td align="right">-0.272</td>
-</tr>
-<tr class="even">
-<td align="left">Aff3</td>
-<td align="left">~~</td>
-<td align="left">Aff4</td>
-<td align="right">4.045</td>
-<td align="right">2.691</td>
-<td align="right">-0.077</td>
-<td align="right">-0.077</td>
-<td align="right">-0.043</td>
-<td align="right">-0.043</td>
-</tr>
-<tr class="odd">
-<td align="left">Aff2</td>
-<td align="left">~~</td>
-<td align="left">Aff3</td>
-<td align="right">3.160</td>
-<td align="right">2.103</td>
-<td align="right">0.119</td>
-<td align="right">0.119</td>
-<td align="right">0.066</td>
-<td align="right">0.066</td>
-</tr>
-<tr class="even">
-<td align="left">AAE</td>
-<td align="left">=~</td>
-<td align="left">Aff1</td>
-<td align="right">3.160</td>
-<td align="right">2.103</td>
-<td align="right">0.236</td>
-<td align="right">0.236</td>
-<td align="right">0.176</td>
-<td align="right">0.176</td>
-</tr>
-</tbody>
-</table>
+| lhs  | op  | rhs  |      mi|  mi.scaled|     epc|  sepc.lv|  sepc.all|  sepc.nox|
+|:-----|:----|:-----|-------:|----------:|-------:|--------:|---------:|---------:|
+| Aff5 | ~~  | Aff6 |  16.894|     11.240|  -0.224|   -0.224|    -0.120|    -0.120|
+| AAC  | =~  | Aff4 |  16.894|     11.240|  -0.578|   -0.578|    -0.439|    -0.439|
+| Aff1 | ~~  | Aff6 |   7.064|      4.700|   0.108|    0.108|     0.061|     0.061|
+| Aff4 | ~~  | Aff5 |   5.977|      3.977|   0.128|    0.128|     0.068|     0.068|
+| AAC  | =~  | Aff6 |   5.977|      3.977|   0.368|    0.368|     0.280|     0.280|
+| Aff1 | ~~  | Aff3 |   5.093|      3.389|  -0.112|   -0.112|    -0.062|    -0.062|
+| AAE  | =~  | Aff2 |   5.093|      3.389|  -0.362|   -0.362|    -0.272|    -0.272|
+| Aff3 | ~~  | Aff4 |   4.045|      2.691|  -0.077|   -0.077|    -0.043|    -0.043|
+| Aff2 | ~~  | Aff3 |   3.160|      2.103|   0.119|    0.119|     0.066|     0.066|
+| AAE  | =~  | Aff1 |   3.160|      2.103|   0.236|    0.236|     0.176|     0.176|
 
 Plotting Path Diagrams
 ----------------------
 
-    semPaths(model2, what = "est")
+``` r
+semPaths(model2, what = "est")
+```
 
-![](EPSY906_HW3_files/figure-markdown_strict/plot2-1.png)
+![](EPSY906_HW3_files/figure-markdown_github/plot2-1.png)
 
 Calculating Reliabilities
 -------------------------
 
-To get the estimates of reliabilities, Omega coefficients were
-calcilated for each
-factor(*Ω*<sub>*A**A**C*</sub> = 0.832, *p* &lt; 0.01; *Ω*<sub>*A**A**E*</sub> = 0.830, *p* &lt; 0.01).
+To get the estimates of reliabilities, Omega coefficients were calcilated for each factor(*Ω*<sub>*A**A**C*</sub> = 0.832, *p* &lt; 0.01; *Ω*<sub>*A**A**E*</sub> = 0.830, *p* &lt; 0.01).
 
-    model03SyntaxOmega = "
-      # AAC loadings (all estimated)
-      AAC =~ L1*Aff1 + L2*Aff2 + L3*Aff3
-      
-      # AAE loadings (all estimated)
-      AAE =~ L4*Aff4 + L5*Aff5 + L6*Aff6
-      
-      # Unique Variances:
-      Aff1 ~~ E1*Aff1; Aff2 ~~ E2*Aff2; Aff3 ~~ E3*Aff3; Aff4 ~~ E4*Aff4; Aff5 ~~ E5*Aff5; Aff6 ~~ E6*Aff6; 
-      
-      
-      # Calculate Omega Reliability for Sum Scores:
-      OmegaAAC := ((L1 + L2 + L3)^2) / ( ((L1 + L2 + L3)^2) + E1 + E2 + E3)
-      OmegaAAE := ((L4 + L5 + L6)^2) / ( ((L4 + L5 + L6)^2) + E4 + E5 + E6)
-    "
+``` r
+model03SyntaxOmega = "
+  # AAC loadings (all estimated)
+  AAC =~ L1*Aff1 + L2*Aff2 + L3*Aff3
+  
+  # AAE loadings (all estimated)
+  AAE =~ L4*Aff4 + L5*Aff5 + L6*Aff6
+  
+  # Unique Variances:
+  Aff1 ~~ E1*Aff1; Aff2 ~~ E2*Aff2; Aff3 ~~ E3*Aff3; Aff4 ~~ E4*Aff4; Aff5 ~~ E5*Aff5; Aff6 ~~ E6*Aff6; 
+  
+  
+  # Calculate Omega Reliability for Sum Scores:
+  OmegaAAC := ((L1 + L2 + L3)^2) / ( ((L1 + L2 + L3)^2) + E1 + E2 + E3)
+  OmegaAAE := ((L4 + L5 + L6)^2) / ( ((L4 + L5 + L6)^2) + E4 + E5 + E6)
+"
 
-    model03EstimatesOmega = sem(model = model03SyntaxOmega, data = dat2, estimator = "MLR", mimic = "mplus", std.lv = TRUE)
-    summary(model03EstimatesOmega, fit.measures = FALSE, rsquare = FALSE, standardized = FALSE, header = FALSE)
+model03EstimatesOmega = sem(model = model03SyntaxOmega, data = dat2, estimator = "MLR", mimic = "mplus", std.lv = TRUE)
+summary(model03EstimatesOmega, fit.measures = FALSE, rsquare = FALSE, standardized = FALSE, header = FALSE)
+```
 
     ## 
     ## Parameter Estimates:
@@ -1121,32 +471,13 @@ factor(*Ω*<sub>*A**A**C*</sub> = 0.832, *p* &lt; 0.01; *Ω*<sub>*A*
 Examining Reliability for Factor Score and Distributions
 --------------------------------------------------------
 
-The AAC factor scores have an estimated mean of 0 with a variance of
-0.88 due to the effect of the prior distribution. The SE for each
-person's AAC factor score is 0.347; 95% confidence interval for AAC
-factor score is *S**c**o**r**e* ± 2 \* 0.347 = *S**c**o**r**e* ± 0.694.
-The AAE factor scores have an estimated mean of 0 with a variance of
-0.881 due to the effect of the prior distribution. The SE for each
-person's AAC factor score is 0.357; 95% confidence interval for AAC
-factor score is *S**c**o**r**e* ± 2 \* 0.357 = *S**c**o**r**e* ± 0.714.
+The AAC factor scores have an estimated mean of 0 with a variance of 0.88 due to the effect of the prior distribution. The SE for each person's AAC factor score is 0.347; 95% confidence interval for AAC factor score is *S**c**o**r**e* ± 2 \* 0.347 = *S**c**o**r**e* ± 0.694. The AAE factor scores have an estimated mean of 0 with a variance of 0.881 due to the effect of the prior distribution. The SE for each person's AAC factor score is 0.357; 95% confidence interval for AAC factor score is *S**c**o**r**e* ± 2 \* 0.357 = *S**c**o**r**e* ± 0.714.
 
-Factor Realiability for AAC is 0.892 and factor realibility for AAE is
-0.887. Both factor reliability are larger than omega.
+Factor Realiability for AAC is 0.892 and factor realibility for AAE is 0.887. Both factor reliability are larger than omega.
 
-The resulting distribution of the EAP estimates of factor score as shown
-in Figure 1. Figure 2 shows the predicted response for each item as a
-linear function of the latent factor based on the estimated model
-parameters. As shown, for AAE factor, the predicted item response goes
-above the highest response option just before a latent factor score of 2
-(i.e., 2 SDs above the mean), resulting in a ceiling effect for AAE
-factor, as also shown in Figure 1.
+The resulting distribution of the EAP estimates of factor score as shown in Figure 1. Figure 2 shows the predicted response for each item as a linear function of the latent factor based on the estimated model parameters. As shown, for AAE factor, the predicted item response goes above the highest response option just before a latent factor score of 2 (i.e., 2 SDs above the mean), resulting in a ceiling effect for AAE factor, as also shown in Figure 1.
 
-The extent to which the items within each factor could be seen as
-exchangeable was then examined via an additional set of nested model
-comparisons, as reported in Table 1 (for fit) and Table 2 (for
-comparisons of fit). Two-factor has better model fit than one-facor
-model. Moreover, according to chi-square difference test, two-factor is
-significantly better than one-factor in model fit.
+The extent to which the items within each factor could be seen as exchangeable was then examined via an additional set of nested model comparisons, as reported in Table 1 (for fit) and Table 2 (for comparisons of fit). Two-factor has better model fit than one-facor model. Moreover, according to chi-square difference test, two-factor is significantly better than one-factor in model fit.
 
     ##       AAC       AAE 
     ## 0.8925361 0.8867031
@@ -1156,11 +487,11 @@ Figures
 
 ### Figure 1 : Factor Score Distribution
 
-![](EPSY906_HW3_files/figure-markdown_strict/unnamed-chunk-6-1.png)![](EPSY906_HW3_files/figure-markdown_strict/unnamed-chunk-6-2.png)
+![](EPSY906_HW3_files/figure-markdown_github/unnamed-chunk-6-1.png)![](EPSY906_HW3_files/figure-markdown_github/unnamed-chunk-6-2.png)
 
 ### Figure 2 : Expected Item Response Plots
 
-![](EPSY906_HW3_files/figure-markdown_strict/item-response-1.png)
+![](EPSY906_HW3_files/figure-markdown_github/item-response-1.png)
 
 Tables
 ======
