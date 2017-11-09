@@ -1,55 +1,10 @@
 ---
 layout: post
-title: "CFA using Lavaan"
+title: "Example for CFA using Lavaan"
+categories: Lavaan
 ---
 
-    citation()
-
-    ## 
-    ## To cite R in publications use:
-    ## 
-    ##   R Core Team (2017). R: A language and environment for
-    ##   statistical computing. R Foundation for Statistical Computing,
-    ##   Vienna, Austria. URL https://www.R-project.org/.
-    ## 
-    ## A BibTeX entry for LaTeX users is
-    ## 
-    ##   @Manual{,
-    ##     title = {R: A Language and Environment for Statistical Computing},
-    ##     author = {{R Core Team}},
-    ##     organization = {R Foundation for Statistical Computing},
-    ##     address = {Vienna, Austria},
-    ##     year = {2017},
-    ##     url = {https://www.R-project.org/},
-    ##   }
-    ## 
-    ## We have invested a lot of time and effort in creating R, please
-    ## cite it when using it for data analysis. See also
-    ## 'citation("pkgname")' for citing R packages.
-
-    citation("lavaan")
-
-    ## 
-    ## To cite lavaan in publications use:
-    ## 
-    ##   Yves Rosseel (2012). lavaan: An R Package for Structural
-    ##   Equation Modeling. Journal of Statistical Software, 48(2), 1-36.
-    ##   URL http://www.jstatsoft.org/v48/i02/.
-    ## 
-    ## A BibTeX entry for LaTeX users is
-    ## 
-    ##   @Article{,
-    ##     title = {{lavaan}: An {R} Package for Structural Equation Modeling},
-    ##     author = {Yves Rosseel},
-    ##     journal = {Journal of Statistical Software},
-    ##     year = {2012},
-    ##     volume = {48},
-    ##     number = {2},
-    ##     pages = {1--36},
-    ##     url = {http://www.jstatsoft.org/v48/i02/},
-    ##   }
-
-CFA on Attitude towards Inclusive Education Survey (N = 507)
+CFA on Attitude Towards Inclusive Education Survey (N = 507)
 ------------------------------------------------------------
 
 The affective dimension of attitudes subscale includes 6 items on a
