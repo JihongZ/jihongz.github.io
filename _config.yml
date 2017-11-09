@@ -16,7 +16,7 @@
 title: Playground With R
 email: jihong.zhang@ku.edu
 description: >- # this means to ignore newlines until "baseurl:"
-    Sorry, Yurou. I make you cry again. Don't cry tonight.
+    Having fun with R programming!!!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
@@ -28,6 +28,7 @@ theme: minima
 plugins:
   - jekyll-feed
 
+port: 1992
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
