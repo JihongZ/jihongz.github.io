@@ -4,6 +4,8 @@ title: "Example for CFA using Lavaan"
 categories: Lavaan
 ---
 
+This is my homework in CFA class. I think this is very good for learning lavaan.
+
 CFA on Attitude Towards Inclusive Education Survey (N = 507)
 ------------------------------------------------------------
 
