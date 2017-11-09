@@ -4,6 +4,7 @@ title: "Example for CFA using Lavaan"
 categories: Lavaan
 ---
 
+## 0. Introduction
 This is my homework in CFA class. I think this is very good for learning lavaan.
 
 CFA on Attitude Towards Inclusive Education Survey (N = 507)
@@ -27,7 +28,7 @@ dat2 <- dat %>% select(X,Aff.1:Aff.6)
 colnames(dat2) <- c("PersonID", paste0("Aff",1:6))
 ```
 
-1. Descriptive Statistics
+## 1. Descriptive Statistics
 -------------------------
 
 The descriptive statistics for all items are provided below. It appears that item 4 is the least difficult item as it has the highest mean (*μ* = 4.189, *s**d* = 1.317); item 5 is the most difficult item as it has lowest mean score (*μ* = 3.604, *s**d* = 1.423). All responses for items ranges from 1 to 6 (1 = Strongly agree, 6 = Strongly disagree). In term of discrimination, as item 3 has the largest standard deviation (*s**d* = 1.364) and item 6 has the smallest, item 3 has highest discrimination whearas item 6 has lowest in CTT.
@@ -103,7 +104,7 @@ ggplot(dat2_melted, aes(value)) + geom_histogram(bins=8) + facet_wrap(~ key)
 
 ![](EPSY906_HW3_files/figure-markdown_github/dist-1.png)
 
-3. Estimation with CFA
+## 3. Estimation with CFA
 ----------------------
 
 ### One-factor Model
