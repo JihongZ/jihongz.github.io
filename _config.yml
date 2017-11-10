@@ -25,7 +25,8 @@ show_downloads: false
 github_username:  JihongZ
 
 
-
+# You can also set the excerpt_separator globally in your _config.yml configuration file. Completely disable excerpts by setting your excerpt_separator to "".
+excerpt_separator: <!--more-->
 
 # Build settings
 markdown: kramdown
