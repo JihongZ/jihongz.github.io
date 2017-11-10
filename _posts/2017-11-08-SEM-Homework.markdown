@@ -94,6 +94,8 @@ table1
 
 ### Sample Item Response Distributions
 
+Here is Histogram Plot for six items.
+
 ``` r
 # stack data
 dat2_melted <- dat2 %>% gather(key, value,Aff1:Aff6) %>% arrange(PersonID)
@@ -102,7 +104,10 @@ dat2_melted <- dat2 %>% gather(key, value,Aff1:Aff6) %>% arrange(PersonID)
 ggplot(dat2_melted, aes(value)) + geom_histogram(bins=8) + facet_wrap(~ key)
 ```
 
-![](EPSY906_HW3_files/figure-markdown_github/dist-1.png)
+
+
+![]({{ "/assets/EPSY906_HW3_files/figure-markdown_github/dist-1.png" | absolute_url }})
+
 
 ## 3. Estimation with CFA
 ----------------------
@@ -390,11 +395,14 @@ modificationindices(model2, standardized = TRUE,sort. = TRUE) %>% slice(1:10) %>
 Plotting Path Diagrams
 ----------------------
 
+Below is the Construct for affective attitude.
+
 ``` r
 semPaths(model2, what = "est")
 ```
 
-![](EPSY906_HW3_files/figure-markdown_github/plot2-1.png)
+![]({{ "/assets/EPSY906_HW3_files/figure-markdown_github/plot2-1.png" | absolute_url }})
+
 
 Calculating Reliabilities
 -------------------------
