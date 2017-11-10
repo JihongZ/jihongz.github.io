@@ -8,14 +8,14 @@ trait (*θ*), V3 to V52 is unique items, V54 to V63 are common items.
 0. Look at the data
 -------------------
 
-First of all, have a look at the data.
-
-These are code for checking the data.
+First of all, after dataset was imported into R, have a look at the data. R codes below are for checking the data.
 
 ``` r
+# load packages
 library(mirt)
 library(tidyverse)
 library(knitr)
+
 ### Read in Raw data from Form A:
 dat <- read.csv(file="FormA.csv")
 glimpse(dat)

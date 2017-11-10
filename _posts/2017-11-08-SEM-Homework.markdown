@@ -1,11 +1,12 @@
 ---
 layout: post
-title: "Example for CFA using Lavaan"
+title: "How to use Lavaan for Comfirmatory Factor Analysis"
 categories: Lavaan
+author: Jihong Zhang
 ---
 
 ## 0. Introduction
-This is one of my homework in SEM class, 2017 Fall. I think this is very good for learning lavaan. I elaborated each steps including descriptive statistics, model specification and interpretation.
+This is one of my homework in SEM class, 2017 Fall. I think this is very good example showing how to use lavaan for Comfirmatory Factor Analysis. I elaborated each steps including descriptive statistics, model specification and interpretation.
 
 ### CFA on Attitude Towards Inclusive Education Survey (N = 507)
 ------------------------------------------------------------
