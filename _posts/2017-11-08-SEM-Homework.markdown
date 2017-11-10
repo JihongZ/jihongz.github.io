@@ -106,7 +106,7 @@ ggplot(dat2_melted, aes(value)) + geom_histogram(bins=8) + facet_wrap(~ key)
 
 
 
-![]({{ "/assets/EPSY906_HW3_files/figure-markdown_github/dist-1.png" | absolute_url }})
+![]({{ "/assets/EPSY906_HW3_files/figure-markdown_strict/dist-1.png" | absolute_url }})
 
 
 ## 3. Estimation with CFA
@@ -401,7 +401,7 @@ Below is the Construct for affective attitude.
 semPaths(model2, what = "est")
 ```
 
-![]({{ "/assets/EPSY906_HW3_files/figure-markdown_github/plot2-1.png" | absolute_url }})
+![]({{ "/assets/EPSY906_HW3_files/figure-markdown_strict/plot2-1.png" | absolute_url }})
 
 
 Calculating Reliabilities
