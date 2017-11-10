@@ -6,7 +6,7 @@ author: Jihong Zhang
 ---
 
 ## 0. Introduction
-This is one of my homework in SEM class, 2017 Fall. I think this is very good example showing how to use lavaan for Comfirmatory Factor Analysis. I elaborated each steps including descriptive statistics, model specification and interpretation.
+This is one of my homework in SEM class, 2017 Fall. I think this is very good example showing how to use lavaan for Confirmatory Factor Analysis. I elaborated each steps including descriptive statistics, model specification and interpretation.
 
 ### CFA on Attitude Towards Inclusive Education Survey (N = 507)
 ------------------------------------------------------------
@@ -95,7 +95,7 @@ table1
 
 ### Sample Item Response Distributions
 
-Here is Histogram Plot for six items. The histogram will provide some evidence whether the categorical resposes are distributed as normal, as the assumption for CFA is the Y should be continous and normal distributed. Even though the histogram plots show the items responses are not exactly normal, but it is nearly normal as far as I'm concerned.
+Histogram Plot for responses are necessary for understanding the outcome variables. The histogram will provide some evidence whether the categorical resposes are distributed as normal, as the assumption for CFA is the Y should be continous and normal distributed. Even though the histogram plots show the items responses are not exactly normal, but it is nearly normal as far as I'm concerned.
 
 ``` r
 # stack data
@@ -104,8 +104,6 @@ dat2_melted <- dat2 %>% gather(key, value,Aff1:Aff6) %>% arrange(PersonID)
 # pl;ot by variable
 ggplot(dat2_melted, aes(value)) + geom_histogram(bins=8) + facet_wrap(~ key)
 ```
-
-
 
 ![]({{ "/assets/EPSY906_HW3_files/figure-markdown_strict/dist-1.png" | absolute_url }})
 
@@ -216,7 +214,7 @@ summary(model1, fit.measures = TRUE, standardized = TRUE)
 
 ### Local Misfit
 
-By looking into local misfit with residual variance-covariance matrix we can get the clues to improve the model. According to the model residuals, item 4 has relatively high positive residual covariance with item 5 and item 6. It suggest that one-factor model underestimate the correlation among item 4, item 5 and item 6. In other words, there may be another latent factor could explain the covariances among item 4, 5, 6 that cannot be explained by a general Affective attitude factor. Moreover, modification indices also suggest that adding covariances among item 4, 5 and 6 will improve chi-square much better. Thus, I add one more factor - AAE. AAE was labeled as affective attitude towards educational environment which indicated by item 4, 5, 6. The other latent factor - AAC which was indicated by item 1, 2, 3 was labeled as Affective Attitude towards communication.
+By looking into local misfit with residual variance-covariance matrix, we can get the clues to improve the model. According to the model residuals, item 4 has relatively high positive residual covariance with item 5 and item 6. It suggest that one-factor model underestimate the correlation among item 4, item 5 and item 6. In other words, there may be another latent factor could explain the covariances among item 4, 5, 6 that cannot be explained by a general Affective attitude factor. Moreover, modification indices also suggest that adding covariances among item 4, 5 and 6 could improve chi-square of model higher which means much better model fit. Thus, I decided to add one more factor - AAE. AAE could be labeled as affective attitude towards educational environment which indicated by item 4, 5, 6. The other latent factor - AAC which was indicated by item 1, 2, 3 was labeled as Affective Attitude towards communication.
 
 ``` r
 resid(model1, type = "normalized")$cov %>% kable(caption = "Normalized Residual Variance-Covariance Matrix",digits = 3)
@@ -251,7 +249,7 @@ modificationindices(model1, standardized = TRUE,sort. = TRUE) %>% slice(1:10) %>
 Two-factor Model
 ----------------
 
-The neccessity of separate latent factors was tested by specifying a two-factor model. In term of model fit indices, it appears that the global model fit indices are acceptable with two-factor model (CFI = 0.986; RMSEA = 0.058; SRMR = 0.022). Theoretically, two latent factors could be labeled as two seperated but highly correlated aspects of attitudes towards inclusive education. One factor AAC could be labeled as how teachers feel about communicating with students with disability. The other one AAE could be labeled as how teachers feel about evironment of inclusive education. All standardized factor loadings are statistically significant ranging from 0.676 to 0.865. The factor correlation between 2 factors is high (*r* = 0.838, *p* = 0.00).
+The neccessity of one more separate latent factor was tested by specifying two-factor model. Using lavaan to specify 2-factor model is easy (see R coeds below).In term of model fit indices, it appears that the global model fit indices are acceptable with two-factor model (CFI = 0.986; RMSEA = 0.058; SRMR = 0.022). Theoretically, two latent factors could be labeled as two seperated but highly correlated aspects of attitudes towards inclusive education. One factor AAC could be labeled as how teachers feel about communicating with students with disability. The other one AAE could be labeled as how teachers feel about evironment of inclusive education. All standardized factor loadings are statistically significant ranging from 0.676 to 0.865. The factor correlation between 2 factors is high (*r* = 0.838, *p* = 0.00).
 
 ``` r
 model2.syntax <- '
