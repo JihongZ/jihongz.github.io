@@ -94,7 +94,7 @@ table1
 
 ### Sample Item Response Distributions
 
-Here is Histogram Plot for six items.
+Here is Histogram Plot for six items. The histogram will provide some evidence whether the categorical resposes are distributed as normal, as the assumption for CFA is the Y should be continous and normal distributed. Even though the histogram plots show the items responses are not exactly normal, but it is nearly normal as far as I'm concerned.
 
 ``` r
 # stack data
