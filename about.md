@@ -4,15 +4,10 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I am a doctorial student in the Department of Educational Psychology at the [University of Kansas](https://ku.edu/). I basically use this site to show my recent, current, and future work as well as some tutorials in a way that tries to make my efforts more interactive. 
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+My research interests are focused on the development of psychometric and general quantitative methods, as applied in the psychological, educational, and social sciences. I am now Graduate Teaching Assisstant of Multivariate Statistics.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+My Website: [jihongzhang.me](https://jihongz.github.io/)
+My Email: jihong.zhang@ku.edu
 
-
-[jekyll-organization]: https://github.com/jekyll
