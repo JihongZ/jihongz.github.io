@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to use Lavaan for Comfirmatory Factor Analysis"
+title: "How to use Lavaan for Confirmatory Factor Analysis"
 categories: Lavaan
 author: Jihong Zhang
 ---
