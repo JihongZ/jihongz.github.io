@@ -490,11 +490,13 @@ Figures
 
 ### Figure 1 : Factor Score Distribution
 
-![](EPSY906_HW3_files/figure-markdown_github/unnamed-chunk-6-1.png)![](EPSY906_HW3_files/figure-markdown_github/unnamed-chunk-6-2.png)
+![](https://github.com/JihongZ/jihongz.github.io/blob/master/_posts/EPSY906_HW3_files/figure-markdown_strict/unnamed-chunk-6-1.png)
+
+![](https://github.com/JihongZ/jihongz.github.io/blob/master/_posts/EPSY906_HW3_files/figure-markdown_github/unnamed-chunk-6-2.png)
 
 ### Figure 2 : Expected Item Response Plots
 
-![](EPSY906_HW3_files/figure-markdown_github/item-response-1.png)
+![](https://github.com/JihongZ/jihongz.github.io/blob/master/_posts/EPSY906_HW3_files/figure-markdown_github/item-response-1.png)
 
 Tables
 ======
