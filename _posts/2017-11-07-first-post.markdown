@@ -11,5 +11,7 @@ string <- "This is R programming"
 print string
 {% endhighlight %}
 
+
 My website: jihongz.github.io
+
 Email: jihong.zhang@ku.edu
