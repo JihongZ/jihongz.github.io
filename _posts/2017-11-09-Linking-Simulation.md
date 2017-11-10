@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Linking Problem Using mirt Package"
+categories: Lavaan
+author: Jihong Zhang
+---
+
+
 Calibration of Form A
 =====================
 
