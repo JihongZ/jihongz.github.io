@@ -2,13 +2,15 @@ Calibration of Form A
 =====================
 
 The mean of *θ* for individuals administrated with form A is 0, the
-standard deviation (*S**D* = 1). In the dataset, X is ID, V1 is true
+standard deviation (*SD* = 1). In the dataset, X is ID, V1 is true
 trait (*θ*), V3 to V52 is unique items, V54 to V63 are common items.
 
 0. Look at the data
 -------------------
 
-First of all, have a look at the data
+First of all, have a look at the data.
+
+These are code for checking the data.
 
 ``` r
 library(mirt)
@@ -93,7 +95,7 @@ From the density function, *m**u*<sub>*θ*</sub> is 0,
 *s**d*<sub>*θ*</sub> is 1.
 
 ``` r
-plot(density(dat$V1), main = "Group A True Trait Density", 
+plot(density(dat$V1), main = "Group A True Trait Density",
      xlab=expression(theta) )
 ```
 
@@ -217,9 +219,9 @@ parms <- coef(mod_A3PL, simplify=TRUE, IRTpars = TRUE)$items
 ```
 
 ``` r
-a_A <- parms[,1] 
-b_A <- parms[,2] 
-c_A <- parms[,3] 
+a_A <- parms[,1]
+b_A <- parms[,2]
+c_A <- parms[,3]
 theta_A <- fscores(mod_A3PL,method="EAP",
                    full.scores=TRUE, full.scores.SE=TRUE,
                    scores.only=TRUE)

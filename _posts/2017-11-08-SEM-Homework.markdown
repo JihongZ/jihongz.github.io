@@ -5,9 +5,9 @@ categories: Lavaan
 ---
 
 ## 0. Introduction
-This is my homework in CFA class. I think this is very good for learning lavaan.
+This is one of my homework in SEM class, 2017 Fall. I think this is very good for learning lavaan. I elaborated each steps including descriptive statistics, model specification and interpretation.
 
-CFA on Attitude Towards Inclusive Education Survey (N = 507)
+### CFA on Attitude Towards Inclusive Education Survey (N = 507)
 ------------------------------------------------------------
 
 The affective dimension of attitudes subscale includes 6 items on a six-point likert scale (1 = Strongly Agree, 6 = Strongly Disagree), measuring teachers' feelings and emotions associated with inclusive education:
@@ -31,7 +31,7 @@ colnames(dat2) <- c("PersonID", paste0("Aff",1:6))
 ## 1. Descriptive Statistics
 -------------------------
 
-The descriptive statistics for all items are provided below. It appears that item 4 is the least difficult item as it has the highest mean (*μ* = 4.189, *s**d* = 1.317); item 5 is the most difficult item as it has lowest mean score (*μ* = 3.604, *s**d* = 1.423). All responses for items ranges from 1 to 6 (1 = Strongly agree, 6 = Strongly disagree). In term of discrimination, as item 3 has the largest standard deviation (*s**d* = 1.364) and item 6 has the smallest, item 3 has highest discrimination whearas item 6 has lowest in CTT.
+The descriptive statistics for all items are provided below. It appears that item 4 is the least difficult item as it has the highest mean (μ = 4.189, sd = 1.317); item 5 is the most difficult item as it has lowest mean score (*μ* = 3.604, sd = 1.423). All responses for items ranges from 1 to 6 (1 = Strongly agree, 6 = Strongly disagree). In term of discrimination, as item 3 has the largest standard deviation (sd = 1.364) and item 6 has the smallest, item 3 has highest discrimination whearas item 6 has lowest in CTT.
 
 |          |  vars|    n|     mean|       sd|  median|  trimmed|      mad|  min|  max|  range|    skew|  kurtosis|     se|
 |----------|-----:|----:|--------:|--------:|-------:|--------:|--------:|----:|----:|------:|-------:|---------:|------:|
@@ -43,7 +43,7 @@ The descriptive statistics for all items are provided below. It appears that ite
 | Aff5     |     6|  507|    3.604|    1.423|       4|    3.590|    1.483|    1|    6|      5|   0.000|    -0.939|  0.063|
 | Aff6     |     7|  507|    4.018|    1.313|       4|    4.061|    1.483|    1|    6|      5|  -0.356|    -0.733|  0.058|
 
-Item-total correlation table was provided below. All item-total correlation coefficients are higher than 0.7, which suggests good internal consistence. Item 1 has lowest item-total correlation (*r* = 0.733, *s**d* = 1.337).
+Item-total correlation table was provided below. All item-total correlation coefficients are higher than 0.7, which suggests good internal consistence. Item 1 has lowest item-total correlation (*r* = 0.733, *sd* = 1.337).
 
 |      |    n|  raw.r|  std.r|  r.cor|  r.drop|   mean|     sd|
 |------|----:|------:|------:|------:|-------:|------:|------:|
@@ -74,9 +74,9 @@ cor(dat2[2:7]) %>% round(3) %>% kable(caption = "Pearson Correlation Matrix")
 ### Sample Mean and Variance
 
 ``` r
-means <- dat2[,2:7] %>% 
+means <- dat2[,2:7] %>%
   summarise_all(funs(mean)) %>% round(3) %>% t() %>% as.data.frame()
-sds <- dat2[,2:7] %>% 
+sds <- dat2[,2:7] %>%
   summarise_all(funs(sd)) %>% round(3) %>% t() %>% as.data.frame()
 table1 <- cbind(means,sds)
 
@@ -120,74 +120,74 @@ summary(model1, fit.measures = TRUE, standardized = TRUE)
 ```
 
     ## lavaan (0.5-23.1097) converged normally after  14 iterations
-    ## 
+    ##
     ##   Number of observations                           507
-    ## 
+    ##
     ##   Number of missing patterns                         1
-    ## 
+    ##
     ##   Estimator                                         ML      Robust
     ##   Minimum Function Test Statistic              115.410      75.835
     ##   Degrees of freedom                                 9           9
     ##   P-value (Chi-square)                           0.000       0.000
     ##   Scaling correction factor                                  1.522
     ##     for the Yuan-Bentler correction (Mplus variant)
-    ## 
+    ##
     ## Model test baseline model:
-    ## 
+    ##
     ##   Minimum Function Test Statistic             1573.730     960.267
     ##   Degrees of freedom                                15          15
     ##   P-value                                        0.000       0.000
-    ## 
+    ##
     ## User model versus baseline model:
-    ## 
+    ##
     ##   Comparative Fit Index (CFI)                    0.932       0.929
     ##   Tucker-Lewis Index (TLI)                       0.886       0.882
-    ## 
+    ##
     ##   Robust Comparative Fit Index (CFI)                         0.934
     ##   Robust Tucker-Lewis Index (TLI)                            0.891
-    ## 
+    ##
     ## Loglikelihood and Information Criteria:
-    ## 
+    ##
     ##   Loglikelihood user model (H0)              -4492.146   -4492.146
     ##   Scaling correction factor                                  1.138
     ##     for the MLR correction
     ##   Loglikelihood unrestricted model (H1)      -4434.440   -4434.440
     ##   Scaling correction factor                                  1.266
     ##     for the MLR correction
-    ## 
+    ##
     ##   Number of free parameters                         18          18
     ##   Akaike (AIC)                                9020.291    9020.291
     ##   Bayesian (BIC)                              9096.404    9096.404
     ##   Sample-size adjusted Bayesian (BIC)         9039.270    9039.270
-    ## 
+    ##
     ## Root Mean Square Error of Approximation:
-    ## 
+    ##
     ##   RMSEA                                          0.153       0.121
     ##   90 Percent Confidence Interval          0.129  0.178       0.101  0.142
     ##   P-value RMSEA <= 0.05                          0.000       0.000
-    ## 
+    ##
     ##   Robust RMSEA                                               0.149
     ##   90 Percent Confidence Interval                             0.119  0.181
-    ## 
+    ##
     ## Standardized Root Mean Square Residual:
-    ## 
+    ##
     ##   SRMR                                           0.040       0.040
-    ## 
+    ##
     ## Parameter Estimates:
-    ## 
+    ##
     ##   Information                                 Observed
     ##   Standard Errors                   Robust.huber.white
-    ## 
+    ##
     ## Latent Variables:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-    ##   AA =~                                                                 
+    ##   AA =~
     ##     Aff1              0.886    0.055   16.183    0.000    0.886    0.663
     ##     Aff2              1.078    0.046   23.284    0.000    1.078    0.808
     ##     Aff3              1.066    0.055   19.499    0.000    1.066    0.783
     ##     Aff4              0.968    0.061   15.934    0.000    0.968    0.736
     ##     Aff5              1.004    0.055   18.291    0.000    1.004    0.706
     ##     Aff6              1.057    0.049   21.644    0.000    1.057    0.805
-    ## 
+    ##
     ## Intercepts:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
     ##    .Aff1              3.765    0.059   63.455    0.000    3.765    2.818
@@ -197,7 +197,7 @@ summary(model1, fit.measures = TRUE, standardized = TRUE)
     ##    .Aff5              3.604    0.063   57.057    0.000    3.604    2.534
     ##    .Aff6              4.018    0.058   68.948    0.000    4.018    3.062
     ##     AA                0.000                               0.000    0.000
-    ## 
+    ##
     ## Variances:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
     ##    .Aff1              1.000    0.081   12.285    0.000    1.000    0.560
@@ -257,80 +257,80 @@ summary(model2, fit.measures = TRUE, standardized = TRUE)
 ```
 
     ## lavaan (0.5-23.1097) converged normally after  19 iterations
-    ## 
+    ##
     ##   Number of observations                           507
-    ## 
+    ##
     ##   Number of missing patterns                         1
-    ## 
+    ##
     ##   Estimator                                         ML      Robust
     ##   Minimum Function Test Statistic               32.332      21.512
     ##   Degrees of freedom                                 8           8
     ##   P-value (Chi-square)                           0.000       0.006
     ##   Scaling correction factor                                  1.503
     ##     for the Yuan-Bentler correction (Mplus variant)
-    ## 
+    ##
     ## Model test baseline model:
-    ## 
+    ##
     ##   Minimum Function Test Statistic             1573.730     960.267
     ##   Degrees of freedom                                15          15
     ##   P-value                                        0.000       0.000
-    ## 
+    ##
     ## User model versus baseline model:
-    ## 
+    ##
     ##   Comparative Fit Index (CFI)                    0.984       0.986
     ##   Tucker-Lewis Index (TLI)                       0.971       0.973
-    ## 
+    ##
     ##   Robust Comparative Fit Index (CFI)                         0.987
     ##   Robust Tucker-Lewis Index (TLI)                            0.975
-    ## 
+    ##
     ## Loglikelihood and Information Criteria:
-    ## 
+    ##
     ##   Loglikelihood user model (H0)              -4450.606   -4450.606
     ##   Scaling correction factor                                  1.166
     ##     for the MLR correction
     ##   Loglikelihood unrestricted model (H1)      -4434.440   -4434.440
     ##   Scaling correction factor                                  1.266
     ##     for the MLR correction
-    ## 
+    ##
     ##   Number of free parameters                         19          19
     ##   Akaike (AIC)                                8939.212    8939.212
     ##   Bayesian (BIC)                              9019.554    9019.554
     ##   Sample-size adjusted Bayesian (BIC)         8959.246    8959.246
-    ## 
+    ##
     ## Root Mean Square Error of Approximation:
-    ## 
+    ##
     ##   RMSEA                                          0.077       0.058
     ##   90 Percent Confidence Interval          0.051  0.106       0.034  0.082
     ##   P-value RMSEA <= 0.05                          0.046       0.268
-    ## 
+    ##
     ##   Robust RMSEA                                               0.071
     ##   90 Percent Confidence Interval                             0.035  0.108
-    ## 
+    ##
     ## Standardized Root Mean Square Residual:
-    ## 
+    ##
     ##   SRMR                                           0.022       0.022
-    ## 
+    ##
     ## Parameter Estimates:
-    ## 
+    ##
     ##   Information                                 Observed
     ##   Standard Errors                   Robust.huber.white
-    ## 
+    ##
     ## Latent Variables:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-    ##   AAC =~                                                                
+    ##   AAC =~
     ##     Aff1              0.903    0.055   16.357    0.000    0.903    0.676
     ##     Aff2              1.153    0.042   27.771    0.000    1.153    0.865
     ##     Aff3              1.117    0.051   22.079    0.000    1.117    0.820
-    ##   AAE =~                                                                
+    ##   AAE =~
     ##     Aff4              1.047    0.053   19.604    0.000    1.047    0.796
     ##     Aff5              1.036    0.053   19.366    0.000    1.036    0.728
     ##     Aff6              1.107    0.044   25.112    0.000    1.107    0.844
-    ## 
+    ##
     ## Covariances:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
-    ##   AAC ~~                                                                
+    ##   AAC ~~
     ##     AAE               0.838    0.028   29.829    0.000    0.838    0.838
-    ## 
+    ##
     ## Intercepts:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
     ##    .Aff1              3.765    0.059   63.455    0.000    3.765    2.818
@@ -341,7 +341,7 @@ summary(model2, fit.measures = TRUE, standardized = TRUE)
     ##    .Aff6              4.018    0.058   68.948    0.000    4.018    3.062
     ##     AAC               0.000                               0.000    0.000
     ##     AAE               0.000                               0.000    0.000
-    ## 
+    ##
     ## Variances:
     ##                    Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
     ##    .Aff1              0.970    0.083   11.753    0.000    0.970    0.543
@@ -405,14 +405,14 @@ To get the estimates of reliabilities, Omega coefficients were calcilated for ea
 model03SyntaxOmega = "
   # AAC loadings (all estimated)
   AAC =~ L1*Aff1 + L2*Aff2 + L3*Aff3
-  
+
   # AAE loadings (all estimated)
   AAE =~ L4*Aff4 + L5*Aff5 + L6*Aff6
-  
+
   # Unique Variances:
-  Aff1 ~~ E1*Aff1; Aff2 ~~ E2*Aff2; Aff3 ~~ E3*Aff3; Aff4 ~~ E4*Aff4; Aff5 ~~ E5*Aff5; Aff6 ~~ E6*Aff6; 
-  
-  
+  Aff1 ~~ E1*Aff1; Aff2 ~~ E2*Aff2; Aff3 ~~ E3*Aff3; Aff4 ~~ E4*Aff4; Aff5 ~~ E5*Aff5; Aff6 ~~ E6*Aff6;
+
+
   # Calculate Omega Reliability for Sum Scores:
   OmegaAAC := ((L1 + L2 + L3)^2) / ( ((L1 + L2 + L3)^2) + E1 + E2 + E3)
   OmegaAAE := ((L4 + L5 + L6)^2) / ( ((L4 + L5 + L6)^2) + E4 + E5 + E6)
@@ -422,28 +422,28 @@ model03EstimatesOmega = sem(model = model03SyntaxOmega, data = dat2, estimator =
 summary(model03EstimatesOmega, fit.measures = FALSE, rsquare = FALSE, standardized = FALSE, header = FALSE)
 ```
 
-    ## 
+    ##
     ## Parameter Estimates:
-    ## 
+    ##
     ##   Information                                 Observed
     ##   Standard Errors                   Robust.huber.white
-    ## 
+    ##
     ## Latent Variables:
     ##                    Estimate  Std.Err  z-value  P(>|z|)
-    ##   AAC =~                                              
+    ##   AAC =~
     ##     Aff1      (L1)    0.903    0.055   16.357    0.000
     ##     Aff2      (L2)    1.153    0.042   27.771    0.000
     ##     Aff3      (L3)    1.117    0.051   22.079    0.000
-    ##   AAE =~                                              
+    ##   AAE =~
     ##     Aff4      (L4)    1.047    0.053   19.604    0.000
     ##     Aff5      (L5)    1.036    0.053   19.366    0.000
     ##     Aff6      (L6)    1.107    0.044   25.112    0.000
-    ## 
+    ##
     ## Covariances:
     ##                    Estimate  Std.Err  z-value  P(>|z|)
-    ##   AAC ~~                                              
+    ##   AAC ~~
     ##     AAE               0.838    0.028   29.829    0.000
-    ## 
+    ##
     ## Intercepts:
     ##                    Estimate  Std.Err  z-value  P(>|z|)
     ##    .Aff1              3.765    0.059   63.455    0.000
@@ -452,9 +452,9 @@ summary(model03EstimatesOmega, fit.measures = FALSE, rsquare = FALSE, standardiz
     ##    .Aff4              4.189    0.058   71.689    0.000
     ##    .Aff5              3.604    0.063   57.057    0.000
     ##    .Aff6              4.018    0.058   68.948    0.000
-    ##     AAC               0.000                           
-    ##     AAE               0.000                           
-    ## 
+    ##     AAC               0.000
+    ##     AAE               0.000
+    ##
     ## Variances:
     ##                    Estimate  Std.Err  z-value  P(>|z|)
     ##    .Aff1      (E1)    0.970    0.083   11.753    0.000
@@ -463,9 +463,9 @@ summary(model03EstimatesOmega, fit.measures = FALSE, rsquare = FALSE, standardiz
     ##    .Aff4      (E4)    0.635    0.085    7.504    0.000
     ##    .Aff5      (E5)    0.950    0.090   10.539    0.000
     ##    .Aff6      (E6)    0.497    0.061    8.191    0.000
-    ##     AAC               1.000                           
-    ##     AAE               1.000                           
-    ## 
+    ##     AAC               1.000
+    ##     AAE               1.000
+    ##
     ## Defined Parameters:
     ##                    Estimate  Std.Err  z-value  P(>|z|)
     ##     OmegaAAC          0.832    0.016   51.512    0.000
@@ -482,7 +482,7 @@ The resulting distribution of the EAP estimates of factor score as shown in Figu
 
 The extent to which the items within each factor could be seen as exchangeable was then examined via an additional set of nested model comparisons, as reported in Table 1 (for fit) and Table 2 (for comparisons of fit). Two-factor has better model fit than one-facor model. Moreover, according to chi-square difference test, two-factor is significantly better than one-factor in model fit.
 
-    ##       AAC       AAE 
+    ##       AAC       AAE
     ## 0.8925361 0.8867031
 
 Figures
