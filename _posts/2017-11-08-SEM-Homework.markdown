@@ -623,6 +623,7 @@ Two-Factor
 </tr>
 </tbody>
 </table>
+
 Table 2: Model Comparisons
 --------------------------
 
@@ -665,6 +666,8 @@ One-Factor vs. Two-Factor
 </tr>
 </tbody>
 </table>
+
+
 Table 3: Model Estimates
 ------------------------
 
