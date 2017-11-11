@@ -8,22 +8,24 @@ author: Jihong Zhang
 This simulation study is to show how to do IRT Linking Process using mirt R Package. The simulation data includes 2 forms - Form A and Form B. These 2 forms are simulated based on 2 groups of individual, one group has 0 mean trait, another has 0.25 mean trait. Both groups have same sd.
 <!--more-->
 
-The means and sds of simulated Form A and B ara:
+The means and sds of simulated Form A and B are:
 
-$$
-\\theta\_{A} = \\theta\_{B} - 0.25 \\\\
-\\sigma\_A^2 = \\sigma\_B^2
-$$
+
+![](http://latex.codecogs.com/gif.latex?%5Ctheta_A%20-%20%5Ctheta_B%20%3D%200.25)
+
+
+![](http://latex.codecogs.com/gif.latex?%5Csigma_A%5E2%20/%20%5Csigma_B%5E2%20%3D%201)
+
 
 Calibration of Form A
 =====================
 
-The mean of *θ* for individuals administrated with form A is 0, the standard deviation (SD=1). In the dataset, X is ID, V1 is true trait (*θ*), V3 to V52 is unique items, V54 to V63 are common items.
+The mean of *θ* for individuals administrated with form A is 0, the standard deviation (SD=1). In the dataset, X is ID, V1 is true trait (*θ*), V3 to V52 is unique items, V54 to V63 are 10 common items.
 
 Look at the data
 ----------------
 
-First of all, have a look at the data
+First of all, let's have a look at the raw data of Form A. It's clear to see that V2 and V53 are NA, which is to separate unique items and linking items. 
 
 ``` r
 library(mirt)
@@ -104,7 +106,7 @@ glimpse(dat)
 Plot the density of true *θ* of Group A
 ---------------------------------------
 
-From the density function, *m**u*<sub>*θ*</sub> is 0, *s**d*<sub>*θ*</sub> is 1.
+From the density function, we can clearly see that *mu*<sub>*θ*</sub> is 0, *sd*<sub>*θ*</sub> is 1.
 
 ``` r
 plot(density(dat$V1), main = "Group A True Trait Density", 
@@ -116,7 +118,7 @@ plot(density(dat$V1), main = "Group A True Trait Density",
 CTT Table
 ---------
 
-CTT table could provide a brief description of table. 2 key valables in the table is item difficulty (*item.diff*) calculated by item means *P*(*y* = 1) and item discrimination (item.disc), which is item-total correlation.
+CTT table could provide a brief look at whether there are some "bad" items. 2 key valables in the table is item difficulty (*item.diff*) calculated by item means *P*(*y* = 1) and item discrimination (item.disc), which is item-total correlation.
 
 ### Clean data
 
@@ -131,7 +133,7 @@ n <- ncol(dat_cali)
 
 ### Classical Test Theory
 
-Then calculate the CTT table for Form A. The item discrimination and difficulty could be compared between Form A and Form B. Because the relationship between trait and total score is non-linear, so there is effect of shrinkage.
+Then calculate the CTT table for Form A. The item discrimination and difficulty could be compared between Form A and Form B. Because the relationship between trait and total score is non-linear, so there is effect of shrinkage. 
 
 ``` r
 # item stats
@@ -148,6 +150,8 @@ CTT <- cbind(item.disc, item.diff, item.freq)
 
 kable(CTT, digits = 3, caption = "CTT Table for Form A")
 ```
+
+The Table below is CTT table. Item 2 has highest item.diff, which mean this item is very easy for the sample in the persepective of Classical Test Theory. Each items' difficulty range from 0.232 to 0.833, which is moderately hard. 
 
 |        |  item.disc|  item.diff|     0|     1|
 |--------|----------:|----------:|-----:|-----:|
@@ -442,7 +446,7 @@ kable(CTT2, digits = 3, caption = "CTT Table for Form A")
 | item59 |      0.004|      0.275|  3627|  1373|
 | item60 |      0.022|      0.715|  1423|  3577|
 
-Final Calibration of Form A
+Final Calibration of Form B
 ---------------------------
 
 ### Model Specification of B
@@ -494,10 +498,11 @@ b-plot
 
 The relationship between b parameters of A and B reflect the latent traits of A and B:
 
-$$
-\\theta\_{A} = \\theta\_{B} - 0.25 \\\\
-\\sigma\_A^2 = \\sigma\_B^2
-$$
+![](http://latex.codecogs.com/gif.latex?%5Ctheta_A%20-%20%5Ctheta_B%20%3D%200.25)
+
+
+![](http://latex.codecogs.com/gif.latex?%5Csigma_A%5E2%20/%20%5Csigma_B%5E2%20%3D%201)
+
  thus, *b*<sub>*B*</sub> − *b*<sub>*A*</sub> should also be -0.25. the estimated difference of b is calculate by the mean of b parametes of Form A's common items and that of Form B's common items, which is -0.2759353. Thus, it is very close to difference of true traits.
 
 ``` r
@@ -592,42 +597,17 @@ LINKED_se <- theta_B[,2]/slope
 paste0("Mean of Theta of B is ",mean(theta_B[,1]) %>% round(3))
 ```
 
-    ## [1] "Mean of Theta of B is -0.013"
+### Before Linking:
+ Mean of Theta of B is -0.013
 
-``` r
-paste0("SD of Theta of B is ", sd(theta_B[,1]) %>% round(3))
-```
+ SD of Theta of B is 0.97
 
-    ## [1] "SD of Theta of B is 0.97"
 
-``` r
-# after Linked
-print("After Linking:")
-```
+### After Linking:
+ Mean of Theta of B is 0.269
 
-    ## [1] "After Linking:"
+ SD of Theta of B is 0.935
 
-``` r
-paste0("Mean of Theta of B is ",mean(LINKED_theta) %>% round(3))
-```
+ Mean of Theta of A is -0.02
 
-    ## [1] "Mean of Theta of B is 0.269"
-
-``` r
-paste0("SD of Theta of B is ",sd(LINKED_theta) %>% round(3))
-```
-
-    ## [1] "SD of Theta of B is 0.935"
-
-``` r
-# Theta of A is
-paste0("Mean of Theta of A is ",mean(theta_A[,1]) %>% round(3))
-```
-
-    ## [1] "Mean of Theta of A is -0.02"
-
-``` r
-paste0("SD of Theta of A is ", sd(theta_A[,1]) %>% round(3))
-```
-
-    ## [1] "SD of Theta of A is 0.965"
+ SD of Theta of A is 0.965
