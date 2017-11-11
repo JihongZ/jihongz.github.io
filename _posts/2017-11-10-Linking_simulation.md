@@ -5,7 +5,7 @@ categories: Lavaan
 author: Jihong Zhang
 ---
 
-> This simulation study is to show how to do IRT Linking Process using mirt R Package. The simulation data includes 2 forms - Form A and Form B. These 2 forms are simulated based on 2 groups of individual, one group has 0 mean trait, another has 0.25 mean trait. Both groups have same sd. :heart:
+> This simulation study is to show how to do IRT Linking Process using mirt R Package. The simulation data includes 2 forms - Form A and Form B. These 2 forms are simulated based on 2 groups of individual, one group has 0 mean trait, another has 0.25 mean trait. Both groups have same sd. 
 <!--more-->
 
 The means and sds of simulated Form A and B are:
@@ -19,7 +19,7 @@ $$
 Calibration of Form A
 =====================
 
-The mean of *θ* for individuals administrated with form A is 0, the standard deviation (SD=1). In the dataset, X is ID, V1 is true trait \\( \theta \\), V3 to V52 is unique items, V54 to V63 are 10 common items.
+The mean of *θ* for individuals administrated with form A is 0, the standard deviation (SD=1). In the dataset, X is ID, V1 is true trait \\( \theta \\), V3 to V52 is unique items, V54 to V63 are 10 common items. :heart:
 
 Look at the data
 ----------------
