@@ -1,0 +1,45 @@
+---
+title: "Lognomal Simulation"
+author: "Jihong Zhang"
+date: "November 11, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Simulate lognomal distibution
+This is to simulation lognormal distribution
+
+```{r cars}
+library(tidyverse)
+set.seed(20171108)
+
+#### Give Y mean and Y sd, simluate lognormal distribution data.
+m = 891 # geometric mean
+sd = 490 # geometric sd
+v = sd^2
+phi = sqrt(v + m^2) 
+
+mu    = log(m^2/phi) # log mean
+sigma = sqrt(log(1+v/m^2)) # log sd
+  
+
+y <- rlnorm(n = 200000, mu, sigma) %>% round(0)
+mean(y) # should be close to 891
+sd(y) # should be close to 490
+
+plot(density(y))
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
