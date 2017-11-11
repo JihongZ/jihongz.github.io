@@ -5,22 +5,21 @@ categories: Lavaan
 author: Jihong Zhang
 ---
 
-This simulation study is to show how to do IRT Linking Process using mirt R Package. The simulation data includes 2 forms - Form A and Form B. These 2 forms are simulated based on 2 groups of individual, one group has 0 mean trait, another has 0.25 mean trait. Both groups have same sd.
+> This simulation study is to show how to do IRT Linking Process using mirt R Package. The simulation data includes 2 forms - Form A and Form B. These 2 forms are simulated based on 2 groups of individual, one group has 0 mean trait, another has 0.25 mean trait. Both groups have same sd.
 <!--more-->
 
 The means and sds of simulated Form A and B are:
 
-
-![](http://latex.codecogs.com/gif.latex?%5Ctheta_A%20-%20%5Ctheta_B%20%3D%200.25)
-
-
-![](http://latex.codecogs.com/gif.latex?%5Csigma_A%5E2%20/%20%5Csigma_B%5E2%20%3D%201)
+$$
+\theta_A - \theta_B = 0.25 \\
+\sigma_A^2 / \sigma_B^2 = 1 
+$$
 
 
 Calibration of Form A
 =====================
 
-The mean of *θ* for individuals administrated with form A is 0, the standard deviation (SD=1). In the dataset, X is ID, V1 is true trait (*θ*), V3 to V52 is unique items, V54 to V63 are 10 common items.
+The mean of *θ* for individuals administrated with form A is 0, the standard deviation (SD=1). In the dataset, X is ID, V1 is true trait \\( \theta \\), V3 to V52 is unique items, V54 to V63 are 10 common items.
 
 Look at the data
 ----------------
@@ -106,7 +105,7 @@ glimpse(dat)
 Plot the density of true *θ* of Group A
 ---------------------------------------
 
-From the density function, we can clearly see that *mu*<sub>*θ*</sub> is 0, *sd*<sub>*θ*</sub> is 1.
+From the density function, we can clearly see that \\( \mu_{\theta} \\) is 0, \\( sd_{\theta} \\) = 1.
 
 ``` r
 plot(density(dat$V1), main = "Group A True Trait Density", 

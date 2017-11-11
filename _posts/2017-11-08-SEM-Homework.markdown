@@ -6,7 +6,7 @@ author: Jihong Zhang
 excerpt_separator: <!--more-->
 ---
 
-This is one of my homework in SEM class, 2017 Fall. I think this is very good example showing how to use lavaan for Confirmatory Factor Analysis. I elaborated each steps including descriptive statistics, model specification and interpretation.
+> This is one of my homework in SEM class, 2017 Fall. I think this is very good example showing how to use lavaan for Confirmatory Factor Analysis. I elaborated each steps including descriptive statistics, model specification and interpretation.
 
 <!--more-->
 
