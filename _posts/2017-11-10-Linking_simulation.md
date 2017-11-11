@@ -111,7 +111,7 @@ plot(density(dat$V1), main = "Group A True Trait Density",
      xlab=expression(theta) )
 ```
 
-![](/assets//assets/Linking_simulation_files/figure-markdown_github/theta-1.png)
+![](/assets/Linking_simulation_files/figure-markdown_github/theta-1.png)
 
 CTT Table
 ---------
