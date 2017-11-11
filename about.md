@@ -9,5 +9,6 @@ I am a doctorial student in the Department of Educational Psychology at the [Uni
 My research interests are focused on the development of psychometric and general quantitative methods, as applied in the psychological, educational, and social sciences. I am now Graduate Teaching Assisstant of Multivariate Statistics.
 
 My Website: [jihongzhang.me](https://jihongz.github.io/)
+
 My Email: jihong.zhang@ku.edu
 
