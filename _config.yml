@@ -23,7 +23,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 show_downloads: false
 #   github.zip_url: https://github.com/JihongZ/jihongz.github.io/tree/master/_posts/EPSY906_HW3_files/figure-markdown_strict
 github_username:  JihongZ
-
+repository:  'JihongZ/jihongz.github.io'
 
 # You can also set the excerpt_separator globally in your _config.yml configuration file. Completely disable excerpts by setting your excerpt_separator to "".
 excerpt_separator: <!--more-->

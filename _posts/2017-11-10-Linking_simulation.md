@@ -6,6 +6,7 @@ author: Jihong Zhang
 ---
 
 > This simulation study is to show how to do IRT Linking Process using mirt R Package. The simulation data includes 2 forms - Form A and Form B. These 2 forms are simulated based on 2 groups of individual, one group has 0 mean trait, another has 0.25 mean trait. Both groups have same sd. 
+
 <!--more-->
 
 The means and sds of simulated Form A and B are:

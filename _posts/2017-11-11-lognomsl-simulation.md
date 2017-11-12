@@ -14,14 +14,14 @@ Simulate lognomal distibution
 
 ### Simulation Study 1
 
-This is to simulate lognormal distribution based on mean and sd of depedent variable (Y). My simulated mean of y is 891, and sd is 490, N (sample size) is 200000. Then use the formular below
+This study is to simulate lognormal density distribution based on mean and sd of depedent variable (Y). My simulated mean of y is 891, and sd is 490, N (sample size) is 200000. Then use the formular below:
 
 ``` r
 mu  = log(m^2/phi) # log mean
 sigma = sqrt(log(1+v/m^2)) # log sd
 ```
 
-to calculate the log mean and log sd for lognormal distribution.
+It could calculate the log mean and log standard deviation for lognormal distribution.
 
 ``` r
 set.seed(20171108)
@@ -48,6 +48,8 @@ rownames(table)  <- c("Mean", "SD")
 kable(table) 
 ```
 
+This is the original, log and simulated mean and sd. It could be easily found that simulated ones are very closed to original.
+
 |      |  Original|       Log|  Simulated|
 |------|---------:|---------:|----------:|
 | Mean |       891|  6.660225|   891.1468|
@@ -56,5 +58,7 @@ kable(table)
 ``` r
 plot(density(y))
 ```
+
+From the density plot below, we can see the mean of X is also close to 891.
 
 ![](/assets/lognomsl-simulation_files/figure-markdown_github/unnamed-chunk-2-1.png)
