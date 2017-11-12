@@ -5,7 +5,9 @@ categories: Lavaan
 author: Jihong Zhang
 ---
 
-> This post is about simulating lognormal distribution. Lognormal distribution used a lot in cumulative data (e.x. counting). But I always have no idea about parameterized this distribution.
+> This post is a try about simulating lognormal distribution using R. Lognormal distribution is used a lot in cumulative data (e.x. counting), which is very similar with normal distribution except x should be larger than 0. For instance, the number of schools, the number of students. But I always have no idea about how to parameterized this distribution. I'll update this post as I learn more about lognormal distribution...
+
+<!--more-->
 
 Simulate lognomal distibution
 -----------------------------
