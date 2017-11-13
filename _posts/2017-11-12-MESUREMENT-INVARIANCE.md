@@ -18,11 +18,11 @@ It is a neat and clear definition of MI. In my opinion, we should first know dif
 
 (I start from 0 numbering because I love Python!)
 
-1.  the measuremt measure different traits for groups
+0.  the measuremt measure different traits for groups
 
-2.  the difference of true latent trait (*θ*)
+1.  the difference of true latent trait (*θ*)
 
-3.  the difference of effects of trait on measurements (*λ*).
+2.  the difference of effects of trait on measurements (*λ*).
 
 The zero and first are easy to understant. For international math assessment, it may measure native speaker's math ability but on the other hand measures English proficiency of international students.Or if male and female have different math ability, they might (not must) have different item responses on math assessment.
 
