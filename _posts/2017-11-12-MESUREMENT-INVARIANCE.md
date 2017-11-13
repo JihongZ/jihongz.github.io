@@ -109,7 +109,38 @@ Compared to configural invariance, metic invariance model constrains the factor 
 
 Next model is Scalar Invariance Model, which constrain the intercepts of items to be euqal.
 
+``` r
+fit.config <- sem(model1.config, data = mddAll, 
+                  meanstructure = T , std.lv = T,
+                  estimator = "MLR", mimic = "mplus",
+                  group = "sex",
+                  group.equal = c("lv.variances", "means")) # latent variance both equal to 1
+                  
+fit.metric <- sem(model1.config, data = mddAll, 
+                  meanstructure = T , std.lv = T,
+                  estimator = "MLR", mimic = "mplus",
+                  group = "sex",
+                  group.equal = c("loadings", "means")) # factor mean should be equal to 0
+fit.scalar <- sem(model1.config, data = mddAll, 
+                  meanstructure = T , std.lv = T,
+                  estimator = "MLR", mimic = "mplus",
+                  group = "sex",
+                  group.equal = c("loadings","intercepts"))
+# same: factor loadings, item intercepts
+# different: reference factor mean is 1, another factor mean is 0
+
+fit.strict <- sem(model1.config, data = mddAll, 
+                  meanstructure = T , std.lv = T,
+                  estimator = "MLR", mimic = "mplus",
+                  group = "sex",
+                  group.equal = c("loadings","intercepts", "residuals"))
+```
+
 ### Runing Model
+
+``` r
+summary(fit.config, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
+```
 
     ## lavaan (0.5-23.1097) converged normally after  47 iterations
     ## 
@@ -297,6 +328,10 @@ Next model is Scalar Invariance Model, which constrain the intercepts of items t
     ##     item8             0.231
     ##     item9             0.131
 
+``` r
+summary(fit.metric, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
+```
+
     ## lavaan (0.5-23.1097) converged normally after  48 iterations
     ## 
     ##   Number of observations per group         
@@ -483,6 +518,10 @@ Next model is Scalar Invariance Model, which constrain the intercepts of items t
     ##     item8             0.253
     ##     item9             0.115
 
+``` r
+summary(fit.scalar, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
+```
+
     ## lavaan (0.5-23.1097) converged normally after  53 iterations
     ## 
     ##   Number of observations per group         
@@ -668,6 +707,10 @@ Next model is Scalar Invariance Model, which constrain the intercepts of items t
     ##     item7             0.107
     ##     item8             0.252
     ##     item9             0.113
+
+``` r
+summary(fit.strict, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
+```
 
     ## lavaan (0.5-23.1097) converged normally after  41 iterations
     ## 
@@ -857,12 +900,40 @@ Next model is Scalar Invariance Model, which constrain the intercepts of items t
 
 ### Model Comparision
 
+``` r
+model_fit <-  function(lavobject) {
+  vars <- c("cfi", "tli", "rmsea", "rmsea.ci.lower", "rmsea.ci.upper", "rmsea.pvalue", "srmr")
+  return(fitmeasures(lavobject)[vars] %>% data.frame() %>% round(2) %>% t())
+}
+
+table_fit <- 
+  list(model_fit(fit.config), model_fit(fit.metric), 
+       model_fit(fit.scalar), model_fit(fit.strict)) %>% 
+  reduce(rbind)
+
+rownames(table_fit) <- c("Configural", "Metric", "Scalar", "Strict")
+
+table_lik.test <- 
+  list(anova(fit.config, fit.metric),
+       anova(fit.metric, fit.scalar),
+       anova(fit.scalar, fit.strict)) %>%  
+  reduce(rbind) %>% 
+  .[-c(3,5),]
+rownames(table_lik.test) <- c("Configural", "Metric", "Scalar", "Strict")
+
+kable(table_fit, caption = "Model Fit Indices Table")
+```
+
 |            |   cfi|   tli|  rmsea|  rmsea.ci.lower|  rmsea.ci.upper|  rmsea.pvalue|  srmr|
 |------------|-----:|-----:|------:|---------------:|---------------:|-------------:|-----:|
 | Configural |  0.96|  0.95|   0.05|            0.03|            0.06|          0.52|  0.04|
 | Metric     |  0.97|  0.96|   0.04|            0.03|            0.06|          0.76|  0.04|
 | Scalar     |  0.96|  0.96|   0.04|            0.03|            0.06|          0.79|  0.05|
 | Strict     |  0.96|  0.96|   0.04|            0.03|            0.05|          0.88|  0.06|
+
+``` r
+kable(table_lik.test, caption = "Model Comparision Table")
+```
 
 |            |   Df|       AIC|       BIC|      Chisq|  Chisq diff|  Df diff|  Pr(&gt;Chisq)|
 |------------|----:|---------:|---------:|----------:|-----------:|--------:|--------------:|
