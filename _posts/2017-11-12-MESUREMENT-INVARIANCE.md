@@ -7,6 +7,8 @@ author: Jihong Zhang
 
 > Recently, I was asked by my friend why should we use Measurement Invariance in real research. Why not just ignore this complex and tedious process? As far I'm concerned, measurement invariance should be widely used if you have large data scale and figure out what's going on between groups difference. In this post, I want to elaborate some problems in **Measurement Invariance**: 1) What is measurement invariance 2) why should we care about measuremnet invariance 3) how to do measurement invariance using R Lavaan Package.
 
+<!--more-->
+
 What is Measurement Invariance (MI)?
 ====================================
 
