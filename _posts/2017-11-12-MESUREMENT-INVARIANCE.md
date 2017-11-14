@@ -1367,7 +1367,7 @@ STRUCTUAL INVARIANCE TESTS
 
 ### Factor Variance Invariance Model
 
-```{r}
+``` r
 fit.structuralVariance <- sem(model1.config, data = mddAll, 
                   meanstructure = T , std.lv = T,
                   estimator = "MLR", mimic = "mplus",
@@ -1574,7 +1574,7 @@ anova(fit.strict,fit.structuralVariance)
 
 ### Factor Mean Invariance Model
 
-```{r}
+``` r
 fit.structuralMean <- sem(model1.config, data = mddAll, 
                   meanstructure = T , std.lv = T,
                   estimator = "MLR", mimic = "mplus",
@@ -1774,7 +1774,7 @@ summary(fit.structuralMean, fit.measures = TRUE, rsquare = TRUE, standardized = 
 
 ### Model Comparision
 
-```{r}
+``` r
 table_fit <- 
   list(model_fit(fit.config), model_fit(fit.structuralVariance), 
        model_fit(fit.structuralMean)) %>% 
