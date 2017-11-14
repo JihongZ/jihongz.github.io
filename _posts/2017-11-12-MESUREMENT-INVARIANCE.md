@@ -33,13 +33,16 @@ Acutally all parameters in CFA model (factor variances, factor covariance, facto
 Why we should use Measurement Invariance?
 =========================================
 
+One of the most important reason of using Measuremtn Invariance is testing group difference at different level - measurement part of structural part. In some studies, group difference is biggest concern. For example, some researches suggest that white students and minority have different friendship network and family support (social capital) which will have varied effect on dropout rate. Then, investigating the measurement invariance would be crucial step for this study. Or the effect size of social capital could be biased.
+
+
 How to use Measurement Invariance
 =================================
 
 Multiple Group CFA Invariance Example (data from Brown Charpter 7):
 -------------------------------------------------------------------
 
-### Major Deression Criteria across Men and Women (n =345)
+### Major Depression Criteria across Men and Women (n =345)
 
 9 items rated by clinicians on a scale iof 0 to 8 (0=none, 8 =very severely disturbing/disabling)
 
