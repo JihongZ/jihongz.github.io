@@ -12,14 +12,14 @@ author: Jihong Zhang
 Preface
 ====================================
 Find R codes using Ctrl+F, then type into the model name below:
-Model 1: fit.config
-Model 2: fit.metric
-Model 3: fit.scalar
-Model 4: fit.scalar2
-Model 5: fit.strict
-Model 6: fit.strict.cov
-Model 7: fit.structuralVariance
-Model 8: fit.structuralMean
+- Model 1: fit.config (Configural Invariance)
+- Model 2: fit.metric  (Metric Invariance)
+- Model 3: fit.scalar (Scalar Invariance)
+- Model 4: fit.scalar2 (Scalar Invariance)
+- Model 5: fit.strict (Residual Variance Invariance)
+- Model 6: fit.strict.cov (Residual Variance Covariance Invariance)
+- Model 7: fit.structuralVariance (Factor Variance Invariance)
+- Model 8: fit.structuralMean (Factor Mean Invariance)
 
 
 What is Measurement Invariance (MI)?
