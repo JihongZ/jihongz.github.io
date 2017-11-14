@@ -58370,6 +58370,18 @@ STRUCTUAL INVARIANCE TESTS
 
 ### Factor Variance Invariance Model
 
+```{r}
+fit.structuralVariance <- sem(model1.config, data = mddAll, 
+                  meanstructure = T , std.lv = T,
+                  estimator = "MLR", mimic = "mplus",
+                  group = "sex",
+                  group.equal = c("loadings","intercepts", "residuals", 
+                                  "lv.variances"),
+                  group.partial = c("item7~1", "item7~~item7"))
+summary(fit.structuralVariance, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
+anova(fit.strict,fit.structuralVariance)
+```
+
     ## lavaan (0.5-23.1097) converged normally after  51 iterations
     ## 
     ##   Number of observations per group         
@@ -58564,6 +58576,17 @@ STRUCTUAL INVARIANCE TESTS
 
 ### Factor Mean Invariance Model
 
+```{r}
+fit.structuralMean <- sem(model1.config, data = mddAll, 
+                  meanstructure = T , std.lv = T,
+                  estimator = "MLR", mimic = "mplus",
+                  group = "sex",
+                  group.equal = c("loadings","intercepts", "residuals", 
+                                  "lv.variances", "means"),
+                  group.partial = c("item7~1", "item7~~item7"))
+summary(fit.structuralMean, fit.measures = TRUE, rsquare = TRUE, standardized = TRUE)
+```
+
     ## lavaan (0.5-23.1097) converged normally after  52 iterations
     ## 
     ##   Number of observations per group         
@@ -58751,6 +58774,27 @@ STRUCTUAL INVARIANCE TESTS
     ##     item9             0.121
 
 ### Model Comparision
+
+```{r}
+table_fit <- 
+  list(model_fit(fit.config), model_fit(fit.structuralVariance), 
+       model_fit(fit.structuralMean)) %>% 
+  reduce(rbind)
+
+rownames(table_fit) <- c("Configural", "structuralVariance", "structuralMean")
+
+table_lik.test <- 
+  list(anova(fit.config, fit.structuralVariance),
+       anova(fit.structuralVariance, fit.structuralMean)
+       ) %>%  
+  reduce(rbind) %>% 
+  .[-3,]
+rownames(table_lik.test) <- c("Configural", "structuralVariance", "structuralMean")
+
+kable(table_fit, caption = "Model Fit Indices Table")
+kable(table_lik.test, caption = "Model Comparision Table")
+```
+
 
 |                    |   cfi|   tli|  rmsea|  rmsea.ci.lower|  rmsea.ci.upper|  rmsea.pvalue|  srmr|
 |--------------------|-----:|-----:|------:|---------------:|---------------:|-------------:|-----:|
