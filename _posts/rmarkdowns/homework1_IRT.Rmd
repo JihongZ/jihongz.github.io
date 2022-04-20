@@ -1,13 +1,14 @@
 ---
 title: "homework1 IRT"
 knit: (function(input_file, encoding) {
-    out_dir <- 'docs';
+    out_dir <- '../';
     rmarkdown::render(input_file,
       encoding=encoding,
-      output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
+      output_file=file.path(dirname(input_file), out_dir, paste0(Sys.Date(),"-", 'hw1-irt.html')))})
 author: "Jihong"
-date: "4/19/2022"
-output: html_document
+date: '`r Sys.Date()`'
+output: 
+    html_document
 ---
 
 ```{r setup, include=FALSE}
