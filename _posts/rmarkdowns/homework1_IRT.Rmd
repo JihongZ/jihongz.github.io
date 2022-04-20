@@ -4,7 +4,7 @@ knit: (function(input_file, encoding) {
     out_dir <- '../';
     rmarkdown::render(input_file,
       encoding=encoding,
-      output_file=file.path(dirname(input_file), out_dir, paste0(Sys.Date(),"-", 'Personal-Website-Workshoo2022.html')))})
+      output_file=file.path(dirname(input_file), out_dir, paste0(Sys.Date(),"-", 'Personal-Website-Workshop2022.html')))})
 author: "Jihong"
 date: '`r Sys.Date()`'
 output: 
