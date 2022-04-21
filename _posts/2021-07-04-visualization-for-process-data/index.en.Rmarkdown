@@ -1,0 +1,75 @@
+---
+title: "Visualization for Process Data"
+description: |
+  This tutorial aims to explore various types of tools of visualizing the process data.
+author:
+  - name: Zhang Jihong
+date: 2021-07-04
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+This tutorial aims to explore various types of tools of visualizing the process data. 
+
+Before diving into the main text, I found one trick to `git pull` one repo but ignore the local changes is:
+
+```{bash eval=FALSE}
+git clean -f
+git pull
+```
+
+## Load Packages
+```{r, message=FALSE}
+library(ProcData)
+library(tidyverse)
+library(RColorBrewer) # for color pallett
+```
+
+## A little about the toy data
+
+A dataset containing the response processes and binary response outcomes of 16763 respondents. *seqs* is an object of class "proc" containing the action sequences and the time sequences of the respondents and *responses* is binary responses of 16763 respondents. The order of the respondents matches that in *seqs*ß.
+
+```{r}
+str(cc_data, max.level = 2)
+head(cc_data$seqs$action_seqs, n = 3)
+```
+
+## Data Transformation
+```{r, cache=TRUE}
+## actions
+dt1 <- cc_data$seqs$action_seqs[1:30]
+## time stamps
+dt2 <- cc_data$seqs$time_seqs[1:30]
+
+## x轴为时间轴，y轴为不同的observations
+dt1_long <- mapply(function(x, y) data.frame(ID = y, action = x) , dt1, names(dt1), SIMPLIFY = FALSE)
+dt1_long <- Reduce(rbind, dt1_long)
+
+dt2_long <- mapply(function(x, y) data.frame(ID = y, time = x) , dt2, names(dt2), SIMPLIFY = FALSE)
+dt2_long <- Reduce(rbind, dt2_long)
+
+dt_full <- cbind(dt1_long, time = dt2_long[,2]) %>% 
+  group_by(ID) %>% 
+  mutate(time_upper = lead(time)) %>% 
+  ungroup() %>% 
+  mutate(time_upper = ifelse(is.na(time_upper), time, time_upper), action = as.factor(action))
+head(dt_full)
+```
+
+## Data Visualization
+```{r, out.height=50}
+set.seed(1234)
+n <- 30 # 30 colors
+qual_col_pals = brewer.pal.info[brewer.pal.info$category == 'qual',]
+col_vector = unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals)))
+line_color = sample(col_vector, n)
+
+ggplot(aes(x = time, y = ID, col = action), data = dt_full) +
+  geom_point(size = 2)+
+  geom_linerange(aes(xmin = time, xmax= time_upper), linetype = 1, size = 1.5)+
+  scale_color_manual(values = col_vector, name = "") +
+  labs(y = "", x = "Time Length") +
+  theme(legend.position="") 
+```
+

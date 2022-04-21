@@ -1,0 +1,12 @@
+{
+  "articles": [
+    {
+      "path": "index.html",
+      "title": "My Personal Github Website",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2022-04-20T20:36:23-05:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}

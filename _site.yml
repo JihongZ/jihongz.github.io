@@ -1,14 +1,14 @@
-name: "jh-website"
+name: "jihong's github website"
+title: "Personal Github Website"
+description: |
+  My Website
+output_dir: "docs"
 navbar:
-  title: "My personal website"
-  left:
+  right:
     - text: "Home"
       href: index.html
-  right: 
-    - icon: fa-envelope fa-lg
-      href: mailto:<cats@catemail.com>
-    - icon: fa-github fa-lg
-      href: http://github.com/<YOUR_GH_NAME>/
-output:
-  html_document:
-    theme: darkly
+    - text: "About"
+      href: about.html
+    - text: "Projects"
+      href: projects.html
+output: distill::distill_article

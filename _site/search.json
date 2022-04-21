@@ -1,0 +1,25 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About",
+      "author": [],
+      "contents": "\n\n\n\n\n\n\n\n\nMy personal website\nHome\n\n\n\n\n\n\n\n\n☰\n\n\n  \n    \n      \n        \n        \n        \n      \n      My personal website\n    \n    \n      \n  Home\n\n      \n  \n    \n     \n  \n\n\n  \n    \n     \n  \n\n      \n  \n\n\n\n\n\n\nAbout\n\n\n\n\nI’m currently a doctoral student in the Department of Educational\nMeasurement & Statistics at the University of Iowa. I basically use this\nsite to show my recent, current, and future works as well as some\ntutorials about R programming in a way that tries to make my efforts\nmore interactive.\nMy research interests are mostly focused on the development of\npsychometric and general quantitative methods, as applied in the\npsychological, educational, and social sciences. I’m now the Graduate\nTeaching Assistant of Multivariate Statistics.\nMy Website: jihongzhang.org\nMy Email: jihong-zhang@uiowa.edu\n\n\n\n\n\n\n\n\n\n\n\n\n// add bootstrap table styles to pandoc tables\nfunction bootstrapStylePandocTables() {\n  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');\n}\n$(document).ready(function () {\n  bootstrapStylePandocTables();\n});\n\n\n\n$(document).ready(function () {\n  window.buildTabsets(\"TOC\");\n});\n\n$(document).ready(function () {\n  $('.tabset-dropdown > .nav-tabs > li').click(function () {\n    $(this).parent().toggleClass('nav-tabs-open');\n  });\n});\n\n  (function () {\n    var script = document.createElement(\"script\");\n    script.type = \"text/javascript\";\n    script.src  = \"https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\";\n    document.getElementsByTagName(\"head\")[0].appendChild(script);\n  })();\n",
+      "last_modified": "2022-04-20T20:02:25-05:00"
+    },
+    {
+      "path": "index.html",
+      "title": "My Personal Github Website",
+      "author": [],
+      "contents": "\n\n\n\n\n\n\n\n\nMy personal website\nHome\n\n\n\n\n\n\n\n\n☰\n\n\n  \n    \n      \n        \n        \n        \n      \n      My personal website\n    \n    \n      \n  Home\n\n      \n  \n    \n     \n  \n\n\n  \n    \n     \n  \n\n      \n  \n\n\n\n\n\n\nMy Personal Github Website\n\n\n\n\nHello, Website! Welcome to the world.\n\n\n\n\n\n\n\n\n\n\n\n\n// add bootstrap table styles to pandoc tables\nfunction bootstrapStylePandocTables() {\n  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');\n}\n$(document).ready(function () {\n  bootstrapStylePandocTables();\n});\n\n\n\n$(document).ready(function () {\n  window.buildTabsets(\"TOC\");\n});\n\n$(document).ready(function () {\n  $('.tabset-dropdown > .nav-tabs > li').click(function () {\n    $(this).parent().toggleClass('nav-tabs-open');\n  });\n});\n\n  (function () {\n    var script = document.createElement(\"script\");\n    script.type = \"text/javascript\";\n    script.src  = \"https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\";\n    document.getElementsByTagName(\"head\")[0].appendChild(script);\n  })();\n",
+      "last_modified": "2022-04-20T20:02:25-05:00"
+    },
+    {
+      "path": "SECURITY.html",
+      "author": [],
+      "contents": "\n\n\n\n\n\n\n\n\nMy personal website\nHome\n\n\n\n\n\n\n\n\n☰\n\n\n  \n    \n      \n        \n        \n        \n      \n      My personal website\n    \n    \n      \n  Home\n\n      \n  \n    \n     \n  \n\n\n  \n    \n     \n  \n\n      \n  \n\n\n\n\n\n\n\n\n\n\n\nSecurity Policy\n\nSupported Versions\nUse this section to tell people about which versions of your project\nare currently being supported with security updates.\nVersion\nSupported\n5.1.x\n:white_check_mark:\n5.0.x\n:x:\n4.0.x\n:white_check_mark:\n< 4.0\n:x:\n\n\nReporting a Vulnerability\nUse this section to tell people how to report a vulnerability.\nTell them where to go, how often they can expect to get an update on\na reported vulnerability, what to expect if the vulnerability is\naccepted or declined, etc.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n// add bootstrap table styles to pandoc tables\nfunction bootstrapStylePandocTables() {\n  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');\n}\n$(document).ready(function () {\n  bootstrapStylePandocTables();\n});\n\n\n\n$(document).ready(function () {\n  window.buildTabsets(\"TOC\");\n});\n\n$(document).ready(function () {\n  $('.tabset-dropdown > .nav-tabs > li').click(function () {\n    $(this).parent().toggleClass('nav-tabs-open');\n  });\n});\n\n  (function () {\n    var script = document.createElement(\"script\");\n    script.type = \"text/javascript\";\n    script.src  = \"https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\";\n    document.getElementsByTagName(\"head\")[0].appendChild(script);\n  })();\n",
+      "last_modified": "2022-04-20T20:02:26-05:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}
