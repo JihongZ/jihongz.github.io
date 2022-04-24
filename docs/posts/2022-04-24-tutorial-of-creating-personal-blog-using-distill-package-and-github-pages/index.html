@@ -118,7 +118,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["img/build_website.png","img/file_structure.png","img/flowchart.png","img/Rmd_file.png","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/anchor-4.2.2/anchor.min.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/bowser-1.9.3/bowser.min.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/distill-2.2.21/template.v2.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/header-attrs-2.13/header-attrs.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/jquery-3.6.0/jquery-3.6.0.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/jquery-3.6.0/jquery-3.6.0.min.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/jquery-3.6.0/jquery-3.6.0.min.map","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/popper-2.6.0/popper.min.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/tippy-6.2.7/tippy-bundle.umd.min.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/tippy-6.2.7/tippy-light-border.css","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/tippy-6.2.7/tippy.css","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/tippy-6.2.7/tippy.umd.min.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["img/build_website.png","img/docs.png","img/file_structure.png","img/flowchart.png","img/Rmd_file.png","img/Settings.png","img/website_preview.png","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/anchor-4.2.2/anchor.min.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/bowser-1.9.3/bowser.min.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/distill-2.2.21/template.v2.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/header-attrs-2.13/header-attrs.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/jquery-3.6.0/jquery-3.6.0.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/jquery-3.6.0/jquery-3.6.0.min.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/jquery-3.6.0/jquery-3.6.0.min.map","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/popper-2.6.0/popper.min.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/tippy-6.2.7/tippy-bundle.umd.min.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/tippy-6.2.7/tippy-light-border.css","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/tippy-6.2.7/tippy.css","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/tippy-6.2.7/tippy.umd.min.js","tutorial-of-creating-personal-blog-using-distill-package-and-github-pages_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2117,6 +2117,11 @@ href="https://docs.github.com/en/get-started/signing-up-for-github/signing-up-fo
 website</a>. To install <em>distill</em> package, run
 <code>install.packages("distill")</code> in your R console.</p>
 <h1 id="procedure">Procedure</h1>
+<p>To create a website with the URL &lt;username.github.io&gt;, create
+the directory name with same name and same Github repo name. For
+example, my github repo name is “jihongz.github.io”, and it is published
+in <a href="http://jihongz.github.io"
+class="uri">http://jihongz.github.io</a>.</p>
 <h1 id="flowchart-for-creating-websitenecessary-files"><img
 src="img/flowchart.png" alt="Flowchart for creating website" />Necessary
 Files</h1>
@@ -2171,11 +2176,37 @@ using <em>Build Website</em> button in the Build pane of Rstudio.</p>
 <img src="img/build_website.png" alt="The Build button in Rstudio" />
 <figcaption aria-hidden="true">The Build button in Rstudio</figcaption>
 </figure>
+<p>It will then pop up your updated website in a window.</p>
+<figure>
+<img src="img/website_preview.png" alt="Preview of updated website" />
+<figcaption aria-hidden="true">Preview of updated website</figcaption>
+</figure>
+<p>However, the website is not published yet. To publish the website,
+upload the files to Github. Following is a example of pushing the local
+files to the Github server via command line.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="pp">*</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;create a new post&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
+</div>
+<h2 id="settings-of-github-repo">Settings of Github Repo</h2>
+<p>Go to the Github Repo &gt; Settings &gt; Pages</p>
+<figure>
+<img src="img/Settings.png" alt="Github Settings" />
+<figcaption aria-hidden="true">Github Settings</figcaption>
+</figure>
+<p>In the webpage, choose <em>_docs</em> and you will see your website
+is published.</p>
+<figure>
+<img src="img/docs.png" alt="change settings" />
+<figcaption aria-hidden="true">change settings</figcaption>
+</figure>
 <h1 id="reference">Reference</h1>
 <p>Learn more about using Distill at <a
 href="https://rstudio.github.io/distill"
 class="uri">https://rstudio.github.io/distill</a>.</p>
-<div class="sourceCode" id="cb2"><pre
+<div class="sourceCode" id="cb3"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

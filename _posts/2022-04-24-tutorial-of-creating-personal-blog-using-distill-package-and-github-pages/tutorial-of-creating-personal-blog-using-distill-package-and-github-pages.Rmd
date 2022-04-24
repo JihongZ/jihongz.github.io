@@ -27,6 +27,8 @@ To get started with Github, please refer to the [official website](https://docs.
 
 # Procedure
 
+To create a website with the URL <username.github.io>, create the directory name with same name and same Github repo name. For example, my github repo name is "jihongz.github.io", and it is published in <http://jihongz.github.io>.
+
 # ![Flowchart for creating website](img/flowchart.png)Necessary Files
 
 To have your personal website, you need to have all require files for the website. The basic files for Github Pages based website with distill includes:
@@ -73,9 +75,23 @@ It will then pop up your updated website in a window.
 
 ![Preview of updated website](img/website_preview.png)
 
-However, the website is not published yet. To publish the website, upload the files to Github. 
+However, the website is not published yet. To publish the website, upload the files to Github. Following is a example of pushing the local files to the Github server via command line.
 
+```{bash, echo = TRUE}
+git add *
+git commit -m "create a new post"
+git push
+```
 
+## Settings of Github Repo
+
+Go to the Github Repo > Settings > Pages
+
+![Github Settings](img/Settings.png)
+
+In the webpage, choose *\_docs* and you will see your website is published. 
+
+![change settings](img/docs.png)
 
 # Reference
 
