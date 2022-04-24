@@ -1,0 +1,82 @@
+---
+title: "[Tutorial] Creating Academic Blog"
+description: |
+  This post reviews the procedure of creating Github Pages Website  using distill package and Github Pages in a step-to-step way.
+author:
+  - name: Zhang Jihong
+    url: {}
+date: 2022-04-24
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
+```
+
+# Requirement
+
+Following software is necessary to replicate the steps in this post:
+
+-   Github account
+-   Rstudio and R
+-   *distill* R package
+
+To get started with Github, please refer to the [official website](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account). To install *distill* package, run `install.packages("distill")` in your R console.
+
+# Procedure
+
+# ![Flowchart for creating website](img/flowchart.png)Necessary Files
+
+To have your personal website, you need to have all require files for the website. The basic files for Github Pages based website with distill includes:
+
+1.  \_site.yml
+2.  index.Rmd
+3.  .nojekyll
+4.  \_posts
+
+![Example of file structure used in my github website](img/file_structure.png){width="65"}
+
+# New Post
+
+To create a new post, use `distill::create_post()` function with the name of the post. The function will create a new directory "2022-XX-XX-post-name" in the *\_posts* folder in which there exists a Rmd file with same name. The Rmd file will be your content of the new post.
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+distill::create_post(title = "Tutorial of creating personal blog using distill package and Github Pages")
+```
+
+![Files in your post folder](img/Rmd_file.png)
+
+Open the Rmd file and make sure the header of your Rmd file is like this:
+
+```
+---
+title: "[Tutorial] Creating Academic Blog"
+description: |
+  This post reviews the procedure of creating Github Pages Website  using distill package and Github Pages in a step-to-step way.
+author:
+  - name: Zhang Jihong
+    url: {}
+date: 2022-04-24
+output:
+  distill::distill_article:
+    self_contained: false
+---
+```
+
+After editting the Rmd file, knit the fill and then build website using *Build Website* button in the Build pane of Rstudio.
+
+![The Build button in Rstudio](img/build_website.png)
+
+It will then pop up your updated website in a window. 
+
+![Preview of updated website](img/website_preview.png)
+
+However, the website is not published yet. To publish the website, upload the files to Github. 
+
+
+
+# Reference
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
